@@ -67,7 +67,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.0-rc01")
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.8.0-rc01")
     implementation("androidx.datastore:datastore-preferences:1.1.1")
-    implementation("com.github.IceMimosa:lz-string-kotlin:1.0.2")
+    implementation("com.github.IceMimosa:lz-string-kotlin:9b0b8389b7d3d91479accf603d9d9db38239bcdc")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
