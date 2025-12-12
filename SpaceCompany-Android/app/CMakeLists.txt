@@ -23,6 +23,7 @@ add_library( # Sets the name of the library.
 
              # Provides a relative path to your source file(s).
              src/main/cpp/native-lib.c
+             src/main/cpp/lz_string_bridge.cpp
              src/main/cpp/libs/cJSON/cJSON.c
              src/main/cpp/game_data.c
              src/main/cpp/tech_data.c )
@@ -54,8 +55,9 @@ if(EXISTS "/data/data/com.termux/files/usr")
     endif()
 
     # Include cJSON AND mock headers for jni.h/android/log.h
-    target_include_directories(spacecompany-native PRIVATE 
+    target_include_directories(spacecompany-native PRIVATE
         src/main/cpp/libs/cJSON
+        src/main/cpp/libs/lz-string-cpp/src
         src/main/cpp/mock_includes
     )
 
@@ -70,7 +72,10 @@ else()
                   log )
     
     # Include only cJSON, NDK handles the rest
-    target_include_directories(spacecompany-native PRIVATE src/main/cpp/libs/cJSON)
+    target_include_directories(spacecompany-native PRIVATE
+        src/main/cpp/libs/cJSON
+        src/main/cpp/libs/lz-string-cpp/src
+    )
 endif()
 
 # Specifies libraries CMake should link to your target library. You

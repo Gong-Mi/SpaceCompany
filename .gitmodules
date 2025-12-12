@@ -1,3 +1,6 @@
 [submodule "SpaceCompany-Android/app/src/main/cpp/libs/cJSON"]
 	path = SpaceCompany-Android/app/src/main/cpp/libs/cJSON
 	url = https://github.com/DaveGamble/cJSON.git
+[submodule "SpaceCompany-Android/app/src/main/cpp/libs/lz-string-cpp"]
+	path = SpaceCompany-Android/app/src/main/cpp/libs/lz-string-cpp
+	url = https://github.com/andykras/lz-string-cpp.git

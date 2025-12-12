@@ -8,6 +8,7 @@
 #include "game_state.h"
 #include "game_data.h"
 #include "tech_data.h"
+#include "lz_string_bridge.h"
 
 #define LOG_TAG "NATIVE_LIB"
 #define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, __VA_ARGS__)
@@ -441,4 +442,66 @@ void core_buy_tech(GameState* gs, const char* techId) {
             }
         }
     }
+}
+
+JNIEXPORT jstring JNICALL
+Java_com_spacecompany_game_data_SaveGameRepository_decompressFromBase64(
+        JNIEnv* env,
+        jobject thiz,
+        jstring base64_string) {
+
+    if (base64_string == NULL) {
+        return NULL;
+    }
+
+    const char* input_chars = (*env)->GetStringUTFChars(env, base64_string, 0);
+    if (input_chars == NULL) {
+        return NULL; // Out of memory
+    }
+
+    size_t output_len = 0;
+    uint16_t* decompressed_chars = bridge_decompress_from_base64(input_chars, &output_len);
+
+    (*env)->ReleaseStringUTFChars(env, base64_string, input_chars);
+
+    if (decompressed_chars == NULL) {
+        return NULL; // Decompression failed
+    }
+
+    jstring result = (*env)->NewString(env, (const jchar*)decompressed_chars, output_len);
+
+    free(decompressed_chars); // Free the memory allocated by the bridge
+
+    return result;
+}
+
+JNIEXPORT jstring JNICALL
+Java_com_spacecompany_game_data_SaveGameRepository_compressToBase64(
+        JNIEnv* env,
+        jobject thiz,
+        jstring raw_string) {
+
+    if (raw_string == NULL) {
+        return NULL;
+    }
+
+    const jchar* input_chars = (*env)->GetStringChars(env, raw_string, 0);
+    if (input_chars == NULL) {
+        return NULL; // Out of memory
+    }
+    jsize input_len = (*env)->GetStringLength(env, raw_string);
+
+    char* compressed_chars = bridge_compress_to_base64((const uint16_t*)input_chars, input_len);
+
+    (*env)->ReleaseStringChars(env, raw_string, input_chars);
+
+    if (compressed_chars == NULL) {
+        return NULL; // Compression failed
+    }
+
+    jstring result = (*env)->NewStringUTF(env, compressed_chars);
+
+    free(compressed_chars); // Free the memory allocated by the bridge
+
+    return result;
 }
