@@ -11,8 +11,9 @@ Game.buildingData = (function () {
 
     // Energy
     instance.energyT1 = $.extend({}, baseProducerBuilding, {
-        name: 'Charcoal Engine',
-        desc: 'Burns Charcoal to produce a steady source of Energy.',
+        name: '木炭引擎',
+        variableId: 'charcoalEngine',
+        desc: '燃烧木炭产生稳定的能量源。',
         resource: 'energy',
         resourcePerSecond: {
             'energy': 2,
@@ -25,8 +26,9 @@ Game.buildingData = (function () {
     });
 
     instance.energyT2 = $.extend({}, baseProducerBuilding, {
-        name: 'Solar Panel',
-        desc: 'Gains Energy slowly from the sun without using any resources.',
+        name: '太阳能电池板',
+        variableId: 'solarPanel',
+        desc: '从太阳缓慢获取能量，不消耗任何资源。',
         resource: 'energy',
         resourcePerSecond: {
             'energy': 1.5
@@ -38,8 +40,9 @@ Game.buildingData = (function () {
     });
 
     instance.energyT3 = $.extend({}, baseProducerBuilding, {
-        name: 'Methane Power Station',
-        desc: 'Burn powerful methane from Venus to satisfy all your power needs.',
+        name: '甲烷发电站',
+        variableId: 'methaneStation',
+        desc: '燃烧来自金星的强大甲烷来满足你所有的电力需求。',
         resource: 'energy',
         resourcePerSecond: {
             'energy': 23,
@@ -52,8 +55,9 @@ Game.buildingData = (function () {
     });
 
     instance.energyT4 = $.extend({}, baseProducerBuilding, {
-        name: 'Nuclear Power Station',
-        desc: 'Uses fission to create large amounts of power.',
+        name: '核电站',
+        variableId: 'nuclearStation',
+        desc: '使用裂变产生大量电力。',
         resource: 'energy',
         resourcePerSecond: {
             'energy': 153,
@@ -66,8 +70,9 @@ Game.buildingData = (function () {
     });
 
     instance.energyT5 = $.extend({}, baseProducerBuilding, {
-        name: 'Magmatic Dynamo',
-        desc: 'The Magmatic Dynamo is a method of producing power by using lava as a fuel. Because of the extreme temperature of lava, a lot of Energy can be produced at once.',
+        name: '岩浆发电机',
+        variableId: 'magmatic',
+        desc: '岩浆发电机是一种利用岩浆作为燃料发电的方法。由于岩浆的极高温度，可以一次产生大量能量。',
         resource: 'energy',
         resourcePerSecond: {
             'energy': 191,
@@ -81,8 +86,9 @@ Game.buildingData = (function () {
     });
 
     instance.energyT6 = $.extend({}, baseProducerBuilding, {
-        name: 'Fusion Reactor',
-        desc: 'In a fusion reaction, Energy is released when two light atomic nuclei are fused together to form one heavier atom. This is the same reaction that occurs in stars and produces a lot of power.',
+        name: '聚变反应堆',
+        variableId: 'fusionReactor',
+        desc: '在聚变反应中，当两个轻原子核聚合成一个较重的原子时释放能量。这就是恒星中发生的反应，能产生大量动力。',
         resource: 'energy',
         resourcePerSecond: {
             'energy': 273,
@@ -98,8 +104,9 @@ Game.buildingData = (function () {
 
     // Plasma
     instance.plasmaT1 = $.extend({}, baseProducerBuilding, {
-        name: 'Super-Heater',
-        desc: 'The Super-Heater throws electricity at Hydrogen to turn it into a plasmatic substance.',
+        name: '超级加热器',
+        variableId: 'heater',
+        desc: '超级加热器向氢气发射电力，将其转化为等离子物质。',
         resource: 'plasma',
         resourcePerSecond: {
             'energy': -1000,
@@ -114,8 +121,9 @@ Game.buildingData = (function () {
     });
 
     instance.plasmaT2 = $.extend({}, baseProducerBuilding, {
-        name: 'Plasmatic Pit',
-        desc: 'This contraption converts Helium into Plasma through firing intensive energy bolts at the gas cloud.',
+        name: '等离子坑',
+        variableId: 'plasmatic',
+        desc: '这个装置通过向氦气云发射高能能量束，将氦气转化为等离子体。',
         resource: 'plasma',
         resourcePerSecond: {
             'energy': -8500,
@@ -130,8 +138,9 @@ Game.buildingData = (function () {
     });
 
     instance.plasmaT3 = $.extend({}, baseProducerBuilding, {
-        name: 'Electron Bath',
-        desc: 'Bathing in Electrons. What could go wrong?',
+        name: '电子浴',
+        variableId: 'bath',
+        desc: '沐浴在电子中。能出什么错呢？',
         resource: 'plasma',
         resourcePerSecond: {
             'energy': -15000,
@@ -148,8 +157,9 @@ Game.buildingData = (function () {
 
     // Uranium
     instance.uraniumT1 = $.extend({}, baseProducerBuilding, {
-        name: 'Grinder',
-        desc: 'Pulverizes Uranium for easy transportation out of deep mineshafts.',
+        name: '研磨机',
+        variableId: 'grinder',
+        desc: '粉碎铀矿，便于从深井中运出。',
         resource: 'uranium',
         resourcePerSecond: {
             'uranium': 1
@@ -162,8 +172,9 @@ Game.buildingData = (function () {
     });
 
     instance.uraniumT2 = $.extend({}, baseProducerBuilding, {
-        name: 'Cubic Teleposer',
-        desc: 'This teleposes blocks of rock from far underground to the surface so that Uranium can be mined more easily.',
+        name: '立方传送器',
+        variableId: 'cubic',
+        desc: '这可以将地底深处的岩块传送到地面，以便更容易地开采铀。',
         resource: 'uranium',
         resourcePerSecond: {
             'energy': -40,
@@ -177,8 +188,9 @@ Game.buildingData = (function () {
     });
 
     instance.uraniumT3 = $.extend({}, baseProducerBuilding, {
-        name: 'Uranium Enricher',
-        desc: 'The Enricher increases the quality of uranium mined and thus allows more of the uranium in rocks to be used in your company.',
+        name: '铀浓缩器',
+        variableId: 'enricher',
+        desc: '浓缩器提高了开采铀的质量，从而允许在你的公司中使用更多岩石中的铀。',
         resource: 'uranium',
         resourcePerSecond: {
             'energy': -180,
@@ -192,8 +204,9 @@ Game.buildingData = (function () {
     });
 
     instance.uraniumT4 = $.extend({}, baseProducerBuilding, {
-        name: 'Yellowcake Recycler',
-        desc: 'Recycles used-up Uranium to provide the resources with a second use. This greatly increases the amount of Uranium you can use per second.',
+        name: '黄饼回收器',
+        variableId: 'recycler',
+        desc: '回收用过的铀，为资源提供二次利用。这极大地增加了你每秒可以使用的铀的数量。',
         resource: 'uranium',
         resourcePerSecond: {
             'energy': -436,
@@ -208,8 +221,9 @@ Game.buildingData = (function () {
 
     // Lava
     instance.lavaT1 = $.extend({}, baseProducerBuilding, {
-        name: 'Heat Resistant Crucible',
-        desc: 'You can use a modified crucible to pick up lava and to store it for later use.',
+        name: '耐热坩埚',
+        variableId: 'crucible',
+        desc: '你可以使用改进的坩埚来收集岩浆并储存起来以备后用。',
         resource: 'lava',
         resourcePerSecond: {
             'lava': 1
@@ -221,8 +235,9 @@ Game.buildingData = (function () {
     });
 
     instance.lavaT2 = $.extend({}, baseProducerBuilding, {
-        name: 'Lava Extractor',
-        desc: 'This extracts lava from volcanoes automatically and quickly.',
+        name: '岩浆提取器',
+        variableId: 'extractor',
+        desc: '这可以自动快速地从火山中提取岩浆。',
         resource: 'lava',
         resourcePerSecond: {
             'energy': -58,
@@ -236,8 +251,9 @@ Game.buildingData = (function () {
     });
 
     instance.lavaT3 = $.extend({}, baseProducerBuilding, {
-        name: 'Igneous Extruder',
-        desc: 'Instead of going out and finding lava, it can be more convenient to make it yourself with heat and pressure.',
+        name: '火成岩挤压机',
+        variableId: 'extruder',
+        desc: '与其外出寻找岩浆，不如利用热量和压力自己制造岩浆更方便。',
         resource: 'lava',
         resourcePerSecond: {
             'energy': -237,
@@ -251,8 +267,9 @@ Game.buildingData = (function () {
     });
 
     instance.lavaT4 = $.extend({}, baseProducerBuilding, {
-        name: 'Volcanic Veluptuator',
-        desc: 'A melting pot of misery, pouring lava out from mined rock.',
+        name: '火山萃取器',
+        variableId: 'veluptuator',
+        desc: '一个痛苦的大熔炉，从开采的岩石中倾泻出岩浆。',
         resource: 'lava',
         resourcePerSecond: {
             'energy': -689,
@@ -271,8 +288,9 @@ Game.buildingData = (function () {
 
     // Oil
     instance.oilT1 = $.extend({}, baseProducerBuilding, {
-        name: 'Small Pump',
-        desc: 'Build a small pump to extract Oil from the ground.',
+        name: '小型泵',
+        variableId: 'pump',
+        desc: '建造一个小泵从地下抽取石油。',
         resource: 'oil',
         resourcePerSecond: {
             'oil': 1
@@ -284,8 +302,9 @@ Game.buildingData = (function () {
     });
 
     instance.oilT2 = $.extend({}, baseProducerBuilding, {
-        name: 'Pumpjack',
-        desc: 'Pumpjacks are much bigger than small pumps and produce Oil on an industrial scale but they require a lot of Energy.',
+        name: '抽油机',
+        variableId: 'pumpjack',
+        desc: '抽油机比小型泵大得多，可以工业规模生产石油，但需要大量能源。',
         resource: 'oil',
         resourcePerSecond: {
             'energy': -4,
@@ -299,8 +318,9 @@ Game.buildingData = (function () {
     });
 
     instance.oilT3 = $.extend({}, baseProducerBuilding, {
-        name: 'Oil Field',
-        desc: 'Oil Fields are large open spaces, usually found in deserts where vast oil wells can be found under the ground.',
+        name: '油田',
+        variableId: 'oilField',
+        desc: '油田是巨大的开阔空间，通常发现于沙漠中，地下有巨大的油井。',
         resource: 'oil',
         resourcePerSecond: {
             'energy': -12,
@@ -314,8 +334,9 @@ Game.buildingData = (function () {
     });
 
     instance.oilT4 = $.extend({}, baseProducerBuilding, {
-        name: 'Offshore Rig',
-        desc: 'Offshore Rigs are megastructures floating in the oceans, extracting Oil from under the sea-beds.',
+        name: '海上钻井平台',
+        variableId: 'oilRig',
+        desc: '海上钻井平台是漂浮在海洋上的巨型结构，从海床下提取石油。',
         resource: 'oil',
         resourcePerSecond: {
             'energy': -44,
@@ -330,8 +351,9 @@ Game.buildingData = (function () {
 
     // Metal
     instance.metalT1 = $.extend({}, baseProducerBuilding, {
-        name: 'Miner',
-        desc: 'Build a pickaxe for your miner.',
+        name: '矿工',
+        variableId: 'miner',
+        desc: '为你的矿工制作一把镐。',
         resource: 'metal',
         unlocked: true,
         resourcePerSecond: {
@@ -344,8 +366,9 @@ Game.buildingData = (function () {
     });
 
     instance.metalT2 = $.extend({}, baseProducerBuilding, {
-        name: 'Heavy Drill',
-        desc: 'Heavy Drills mine Metal at mass.',
+        name: '重型钻机',
+        variableId: 'heavyDrill',
+        desc: '重型钻机大规模开采金属。',
         resource: 'metal',
         resourcePerSecond: {
             'energy': -2,
@@ -359,8 +382,9 @@ Game.buildingData = (function () {
     });
 
     instance.metalT3 = $.extend({}, baseProducerBuilding, {
-        name: 'Giga Drill',
-        desc: 'Giga Drills extract Metal at colossal speeds.',
+        name: '巨型钻机',
+        variableId: 'gigaDrill',
+        desc: '巨型钻机以极高的速度提取金属。',
         resource: 'metal',
         resourcePerSecond: {
             'energy': -9,
@@ -374,8 +398,9 @@ Game.buildingData = (function () {
     });
 
     instance.metalT4 = $.extend({}, baseProducerBuilding, {
-        name: 'Quantum Drill',
-        desc: 'Quantum Drills bend the space-time continuum to get metal faster than physically possible.',
+        name: '量子钻机',
+        variableId: 'quantumDrill',
+        desc: '量子钻机弯曲时空连续体，以物理上不可能的速度获取金属。',
         resource: 'metal',
         resourcePerSecond: {
             'energy': -24,
@@ -390,8 +415,9 @@ Game.buildingData = (function () {
 
     // Gem
     instance.gemT1 = $.extend({}, baseProducerBuilding, {
-        name: 'Gem Miner',
-        desc: 'Build an improved pickaxe to mine Gems.',
+        name: '宝石矿工',
+        variableId: 'gemMiner',
+        desc: '制作一把改进的镐来开采宝石。',
         resource: 'gem',
         unlocked: true,
         resourcePerSecond: {
@@ -404,8 +430,9 @@ Game.buildingData = (function () {
     });
 
     instance.gemT2 = $.extend({}, baseProducerBuilding, {
-        name: 'Advanced Drill',
-        desc: 'Advanced Drills mine gem at mass. Because of the toughness of the drill needed it is slower than the heavy drill.',
+        name: '高级钻机',
+        variableId: 'advancedDrill',
+        desc: '高级钻机大规模开采宝石。由于所需的钻头非常坚硬，它比重型钻机慢。',
         resource: 'gem',
         resourcePerSecond: {
             'energy': -2,
@@ -419,8 +446,9 @@ Game.buildingData = (function () {
     });
 
     instance.gemT3 = $.extend({}, baseProducerBuilding, {
-        name: 'Diamond Encrusted Drill',
-        desc: 'The Diamond Encrusted Drill is one of the strongest drills in the solar system, and as such, can collect Gems faster than anything before it.',
+        name: '镶钻钻机',
+        variableId: 'diamondDrill',
+        desc: '镶钻钻机是太阳系中最坚固的钻机之一，因此可以比以往任何时候都更快地收集宝石。',
         resource: 'gem',
         resourcePerSecond: {
             'energy': -15,
@@ -434,8 +462,9 @@ Game.buildingData = (function () {
     });
 
     instance.gemT4 = $.extend({}, baseProducerBuilding, {
-        name: 'Carbyne Drill',
-        desc: 'Carbyne Drills one of the strongest drills in the solar system, and as such, can collect Gems faster than anything before it.',
+        name: '卡拜钻机',
+        variableId: 'carbyneDrill',
+        desc: '卡拜钻机是太阳系中最坚固的钻机之一，因此可以比以往任何时候都更快地收集宝石。',
         resource: 'gem',
         resourcePerSecond: {
             'energy': -40,
@@ -450,8 +479,9 @@ Game.buildingData = (function () {
 
     // Charcoal
     instance.charcoalT1 = $.extend({}, baseProducerBuilding, {
-        name: 'Woodburner',
-        desc: 'Build a shovel for your woodburner.',
+        name: '燃木炉',
+        variableId: 'woodburner',
+        desc: '为你的燃木炉制作一把铲子。',
         resource: 'charcoal',
         resourcePerSecond: {
             'wood': -2,
@@ -464,8 +494,9 @@ Game.buildingData = (function () {
     });
 
     instance.charcoalT2 = $.extend({}, baseProducerBuilding, {
-        name: 'Furnace',
-        desc: 'Furnaces use electric heaters to produce heat to turn Wood into Charcoal. Because of the increased heat, the process is more efficient.',
+        name: '熔炉',
+        variableId: 'furnace',
+        desc: '熔炉使用电加热器产生热量，将木材转化为木炭。由于热量增加，该过程更有效率。',
         resource: 'charcoal',
         resourcePerSecond: {
             'energy': -3,
@@ -480,8 +511,9 @@ Game.buildingData = (function () {
     });
 
     instance.charcoalT3 = $.extend({}, baseProducerBuilding, {
-        name: 'Industrial Kiln',
-        desc: 'These large kilns are much for effective than previous methods of creating charcoal and use less wood to make the same amount as a furnace.',
+        name: '工业窑炉',
+        variableId: 'kiln',
+        desc: '这些大型窑炉比以前制造木炭的方法有效得多，并且使用更少的木材来制造与熔炉相同数量的木炭。',
         resource: 'charcoal',
         resourcePerSecond: {
             'energy': -13,
@@ -496,8 +528,9 @@ Game.buildingData = (function () {
     });
 
     instance.charcoalT4 = $.extend({}, baseProducerBuilding, {
-        name: 'Forest Fryer',
-        desc: 'Forests? What forests?',
+        name: '森林燃烧器',
+        variableId: 'fryer',
+        desc: '森林？什么森林？',
         resource: 'charcoal',
         resourcePerSecond: {
             'energy': -34,
@@ -513,8 +546,9 @@ Game.buildingData = (function () {
 
     // Wood
     instance.woodT1 = $.extend({}, baseProducerBuilding, {
-        name: 'Woodcutter',
-        desc: 'Build an axe for your woodcutter.',
+        name: '伐木工',
+        variableId: 'woodcutter',
+        desc: '给你的伐木工做把斧头。',
         resource: 'wood',
         unlocked: true,
         resourcePerSecond: {
@@ -527,8 +561,9 @@ Game.buildingData = (function () {
     });
 
     instance.woodT2 = $.extend({}, baseProducerBuilding, {
-        name: 'Laser Cutter',
-        desc: 'Laser Cutters slice trees (and fingers) quicker than axes and produce a lot more wood.',
+        name: '激光切割机',
+        variableId: 'laserCutter',
+        desc: '激光切割机比斧头切树（和手指）更快，而且产生的木材也多得多。',
         resource: 'wood',
         resourcePerSecond: {
             'energy': -4,
@@ -542,8 +577,9 @@ Game.buildingData = (function () {
     });
 
     instance.woodT3 = $.extend({}, baseProducerBuilding, {
-        name: 'Mass Deforester',
-        desc: 'This machine is the reason we\'re losing our rainforests. At least we get lots of wood!',
+        name: '大规模森林砍伐机',
+        variableId: 'deforester',
+        desc: '这台机器就是我们要失去热带雨林的原因。至少我们得到了很多木头！',
         resource: 'wood',
         resourcePerSecond: {
             'energy': -16,
@@ -557,8 +593,9 @@ Game.buildingData = (function () {
     });
 
     instance.woodT4 = $.extend({}, baseProducerBuilding, {
-        name: 'Biomass Infuser',
-        desc: 'Creates Wood using old, useless materials found everywhere on Earth by crushing them and packing what remains as densely as possible until it can be used as Wood again.',
+        name: '生物质注入器',
+        variableId: 'infuser',
+        desc: '通过粉碎在地球上随处可见的无用旧材料，并将其尽可能紧密地包装，直到可以再次作为木材使用。',
         resource: 'wood',
         resourcePerSecond: {
             'energy': -43,
@@ -573,8 +610,9 @@ Game.buildingData = (function () {
 
     // Silicon
     instance.siliconT1 = $.extend({}, baseProducerBuilding, {
-        name: 'Empowered Blowtorch',
-        desc: 'This type of blowtorch instantly turns sand into Silicon, but only on a small scale. To make it, extraterrestrial resources are required.',
+        name: '强化喷灯',
+        variableId: 'blowtorch',
+        desc: '这种类型的喷灯会立即把沙子变成硅，但规模很小。要制作它，需要外星资源。',
         resource: 'silicon',
         resourcePerSecond: {
             'silicon': 1
@@ -586,8 +624,9 @@ Game.buildingData = (function () {
     });
 
     instance.siliconT2 = $.extend({}, baseProducerBuilding, {
-        name: 'Seaside Scorcher',
-        desc: 'This tool almost melts parts of beaches to get silicon at a larger scale.',
+        name: '海滨灼烧者',
+        variableId: 'scorcher',
+        desc: '这个工具几乎可以融化部分海滩，以更大规模地获得硅。',
         resource: 'silicon',
         resourcePerSecond: {
             'energy': -18,
@@ -601,8 +640,9 @@ Game.buildingData = (function () {
     });
 
     instance.siliconT3 = $.extend({}, baseProducerBuilding, {
-        name: 'Beach Annihilator',
-        desc: 'This weapon of mass destruction has been re-labelled and now hovers above coast-lines, or what is now left of them.',
+        name: '海滩歼灭者',
+        variableId: 'annihilator',
+        desc: '这种大规模杀伤性武器已被重新标记，现在盘旋在海岸线上方，或者说海岸线残余物的上方。',
         resource: 'silicon',
         resourcePerSecond: {
             'energy': -53,
@@ -616,8 +656,9 @@ Game.buildingData = (function () {
     });
 
     instance.siliconT4 = $.extend({}, baseProducerBuilding, {
-        name: 'Desert Destroyer',
-        desc: 'This large ship orbits around the planet, focused in the Sahara Desert, tearing up sand from Earth and turning it into Silicon under intense heat.',
+        name: '沙漠毁灭者',
+        variableId: 'desert',
+        desc: '这艘大船绕着地球运行，聚焦于撒哈拉沙漠，撕开地球的沙子，在高温下将其变成硅。',
         resource: 'silicon',
         resourcePerSecond: {
             'energy': -138,
@@ -636,8 +677,9 @@ Game.buildingData = (function () {
 
     // Lunarite
     instance.lunariteT1 = $.extend({}, baseProducerBuilding, {
-        name: 'Native Moon Worker',
-        desc: 'Bribe local workers to mine your Lunarite.',
+        name: '本地月球工人',
+        variableId: 'moonWorker',
+        desc: '贿赂当地工人开采你的月球岩。',
         resource: 'lunarite',
         resourcePerSecond: {
             'lunarite': 1
@@ -648,8 +690,9 @@ Game.buildingData = (function () {
     });
 
     instance.lunariteT2 = $.extend({}, baseProducerBuilding, {
-        name: 'Low-Gravity Drill',
-        desc: 'These drills practically float!',
+        name: '低重力钻机',
+        variableId: 'moonDrill',
+        desc: '这些钻机实际上是漂浮的！',
         resource: 'lunarite',
         resourcePerSecond: {
             'energy': -20,
@@ -663,8 +706,9 @@ Game.buildingData = (function () {
     });
 
     instance.lunariteT3 = $.extend({}, baseProducerBuilding, {
-        name: 'Moon Quarry',
-        desc: 'This quarry tears up the surface of the moon so much that it can be seen from Earth.',
+        name: '月球采石场',
+        variableId: 'moonQuarry',
+        desc: '这个采石场撕裂了月球表面，甚至从地球上都能看到。',
         resource: 'lunarite',
         resourcePerSecond: {
             'energy': -70,
@@ -678,8 +722,9 @@ Game.buildingData = (function () {
     });
 
     instance.lunariteT4 = $.extend({}, baseProducerBuilding, {
-        name: 'Planetary Excavator',
-        desc: 'This large machine dives deep into the Earth to find large pools of Lunarite found near the core. This is originally where the metal on the Moon comes from.',
+        name: '行星挖掘机',
+        variableId: 'planetExcavator',
+        desc: '这台大型机器深入地球，寻找地核附近的大量月球岩矿藏。这就是月球上金属的最初来源。',
         resource: 'lunarite',
         resourcePerSecond: {
             'energy': -182,
@@ -694,8 +739,9 @@ Game.buildingData = (function () {
 
     // Methane
     instance.methaneT1 = $.extend({}, baseProducerBuilding, {
-        name: 'Vacuum Cleaner',
-        desc: 'Sucks in methane and cleans the planet at the same time!',
+        name: '吸尘器',
+        variableId: 'vacuum',
+        desc: '吸入甲烷并同时清洁星球！',
         resource: 'methane',
         resourcePerSecond: {
             'methane': 1
@@ -706,8 +752,9 @@ Game.buildingData = (function () {
     });
 
     instance.methaneT2 = $.extend({}, baseProducerBuilding, {
-        name: 'Suction Excavator',
-        desc: 'Sucks more than anything!',
+        name: '抽吸挖掘机',
+        variableId: 'suctionExcavator',
+        desc: '比任何东西都吸得多！',
         resource: 'methane',
         resourcePerSecond: {
             'energy': -16,
@@ -721,8 +768,9 @@ Game.buildingData = (function () {
     });
 
     instance.methaneT3 = $.extend({}, baseProducerBuilding, {
-        name: 'Space Cow Plantation',
-        desc: 'These hold cows genetically moodified to produce methane constantly',
+        name: '太空牛养殖场',
+        variableId: 'spaceCow',
+        desc: '这些牛经过基因改造，可以持续产生甲烷。',
         resource: 'methane',
         resourcePerSecond: {
             'energy': -49,
@@ -736,8 +784,9 @@ Game.buildingData = (function () {
     });
 
     instance.methaneT4 = $.extend({}, baseProducerBuilding, {
-        name: 'Hydrothermal Vent',
-        desc: 'Collect gas from deep sea vents on the ocean floor of Titan.',
+        name: '热液喷口',
+        variableId: 'vent',
+        desc: '从泰坦海洋底部的深海喷口收集气体。',
         resource: 'methane',
         resourcePerSecond: {
             'energy': -132,
@@ -752,8 +801,9 @@ Game.buildingData = (function () {
 
     // Titanium
     instance.titaniumT1 = $.extend({}, baseProducerBuilding, {
-        name: 'Explorer',
-        desc: 'Hire explorers to search for Titanium on the surface, uncovered by winds on Mars.',
+        name: '探险家',
+        variableId: 'explorer',
+        desc: '雇佣探险家在火星表面寻找钛矿，这些钛矿被风吹暴露出来。',
         resource: 'titanium',
         resourcePerSecond: {
             'titanium': 1
@@ -764,8 +814,9 @@ Game.buildingData = (function () {
     });
 
     instance.titaniumT2 = $.extend({}, baseProducerBuilding, {
-        name: 'Lunarite Drill',
-        desc: 'These Lunarite Drills are extremely powerful, needed to mine out Titanium from inside Mars\' crust.',
+        name: '月球岩钻机',
+        variableId: 'lunariteDrill',
+        desc: '这些月球岩钻机非常强大，需要它们才能从火星地壳内部开采钛。',
         resource: 'titanium',
         resourcePerSecond: {
             'energy': -13,
@@ -779,8 +830,9 @@ Game.buildingData = (function () {
     });
 
     instance.titaniumT3 = $.extend({}, baseProducerBuilding, {
-        name: 'Penta-Drill',
-        desc: 'This is a mining machine modified to have 5 drills on its face. This allows for a massive increase in resources gained per second.',
+        name: '五重钻机',
+        variableId: 'pentaDrill',
+        desc: '这是一种经过改造的采矿机，其表面有 5 个钻头。这使得每秒获得的资源量大幅增加。',
         resource: 'titanium',
         resourcePerSecond: {
             'energy': -46,
@@ -794,8 +846,9 @@ Game.buildingData = (function () {
     });
 
     instance.titaniumT4 = $.extend({}, baseProducerBuilding, {
-        name: 'Drill of Titans',
-        desc: 'This mighty drill is said to have been wielded by Titans themselves, many milennia ago.',
+        name: '泰坦钻机',
+        variableId: 'titanDrill',
+        desc: '据说这把强大的钻机是数千年前泰坦们亲自挥舞的。',
         resource: 'titanium',
         resourcePerSecond: {
             'energy': -123,
@@ -810,8 +863,9 @@ Game.buildingData = (function () {
 
     // Gold
     instance.goldT1 = $.extend({}, baseProducerBuilding, {
-        name: 'Rocket Droid',
-        desc: 'Powered by Methane, this droid scouts the asteroids for gold deposits.',
+        name: '火箭机器人',
+        variableId: 'droid',
+        desc: '由甲烷驱动，这个机器人侦察小行星寻找金矿。',
         resource: 'gold',
         resourcePerSecond: {
             'gold': 1
@@ -823,8 +877,9 @@ Game.buildingData = (function () {
     });
 
     instance.goldT2 = $.extend({}, baseProducerBuilding, {
-        name: 'Asteroid Destroyer',
-        desc: 'Mines through asteroids to find Gold. It is much more effective than the simple droid.',
+        name: '小行星破坏者',
+        variableId: 'destroyer',
+        desc: '穿过小行星寻找黄金。它比简单的机器人效率高得多。',
         resource: 'gold',
         resourcePerSecond: {
             'energy': -19,
@@ -838,10 +893,10 @@ Game.buildingData = (function () {
     });
 
     instance.goldT3 = $.extend({}, baseProducerBuilding, {
-        name: 'Death Star Jr',
-        desc: 'That\'s no moon! That\'s a Space Station! This cuts through asteroids to expose all of the Gold in the centers.',
-        resource: 'gold',
-        resourcePerSecond: {
+        name: '死星二号',
+        variableId: 'deathStar',
+        desc: '那不是月亮！那是一个空间站！它切割小行星以暴露其核心的所有黄金。',
+        		resource: 'gold',        resourcePerSecond: {
             'energy': -81,
             'gold': 51
         },
@@ -853,8 +908,9 @@ Game.buildingData = (function () {
     });
 
     instance.goldT4 = $.extend({}, baseProducerBuilding, {
-        name: 'Chronal Actuator',
-        desc: 'Speeds up time through quantum physics in order to produce even more Gold.',
+        name: '时间致动器',
+        variableId: 'actuator',
+        desc: '通过量子物理学加速时间，以产生更多的黄金。',
         resource: 'gold',
         resourcePerSecond: {
             'energy': -223,
@@ -869,8 +925,9 @@ Game.buildingData = (function () {
 
     // Silver
     instance.silverT1 = $.extend({}, baseProducerBuilding, {
-        name: 'Scout Ship',
-        desc: 'The Scout Ship searches through the asteroid field for pieces of silver embedded in asteroids.',
+        name: '侦察船',
+        variableId: 'scout',
+        desc: '侦察船在小行星带中搜索嵌入小行星的银片。',
         resource: 'silver',
         resourcePerSecond: {
             'silver': 1
@@ -882,8 +939,9 @@ Game.buildingData = (function () {
     });
 
     instance.silverT2 = $.extend({}, baseProducerBuilding, {
-        name: 'Interplanetary Laser',
-        desc: 'Cuts through asteroids to find silver deposits in their cores.',
+        name: '星际激光',
+        variableId: 'spaceLaser',
+        desc: '切割小行星，在其核心寻找银矿。',
         resource: 'silver',
         resourcePerSecond: {
             'energy': -24,
@@ -897,8 +955,9 @@ Game.buildingData = (function () {
     });
 
     instance.silverT3 = $.extend({}, baseProducerBuilding, {
-        name: 'Big Bertha',
-        desc: 'This large, space drill, named after the World War One Howitzer built almost a milienia ago, is a silver seeking machine specially designed for mining asteroids.',
+        name: '大伯莎',
+        variableId: 'bertha',
+        desc: '这艘大型太空钻机，以一千多年前建造的第一次世界大战榴弹炮命名，是一种专门为采矿小行星而设计的寻银机器。',
         resource: 'silver',
         resourcePerSecond: {
             'energy': -65,
@@ -912,8 +971,9 @@ Game.buildingData = (function () {
     });
 
     instance.silverT4 = $.extend({}, baseProducerBuilding, {
-        name: 'Atomic Cannon',
-        desc: 'This powerful cannon orbits Neptune and can atomise the surface of asteroids, revealing the silver within.',
+        name: '原子加农炮',
+        variableId: 'cannon',
+        desc: '这门强大的加农炮围绕海王星运行，可以原子化小行星表面，显露出内部的银。',
         resource: 'silver',
         resourcePerSecond: {
             'energy': -170,
@@ -932,8 +992,9 @@ Game.buildingData = (function () {
 
     // Hydrogen
     instance.hydrogenT1 = $.extend({}, baseProducerBuilding, {
-        name: 'Hydrogen Collector',
-        desc: 'This collector travels around Jupiter seeking Hydrogen to store to bring back to Earth.',
+        name: '氢收集器',
+        variableId: 'collector',
+        desc: '这个收集器围绕木星旅行，寻找氢气储存起来带回地球。',
         resource: 'hydrogen',
         resourcePerSecond: {
             'hydrogen': 1
@@ -945,8 +1006,9 @@ Game.buildingData = (function () {
     });
 
     instance.hydrogenT2 = $.extend({}, baseProducerBuilding, {
-        name: 'Gaseous Magnet',
-        desc: 'The magnet attracts the Hydrogen to it to increase the amount collected per second.',
+        name: '气态磁铁',
+        variableId: 'magnet',
+        desc: '磁铁吸引氢气，增加每秒收集量。',
         resource: 'hydrogen',
         resourcePerSecond: {
             'energy': -63,
@@ -960,8 +1022,9 @@ Game.buildingData = (function () {
     });
 
     instance.hydrogenT3 = $.extend({}, baseProducerBuilding, {
-        name: 'Electrolytic Cell',
-        desc: 'These are made here on Earth and can turn water into hydrogen with a constant supply of Energy.',
+        name: '电解池',
+        variableId: 'eCell',
+        desc: '这些电池在地球上制造，可以通过持续的能量供应将水转化为氢气。',
         resource: 'hydrogen',
         resourcePerSecond: {
             'energy': -234,
@@ -975,8 +1038,9 @@ Game.buildingData = (function () {
     });
 
     instance.hydrogenT4 = $.extend({}, baseProducerBuilding, {
-        name: 'Hindenburg Excavation',
-        desc: 'Somehow, it works.',
+        name: '兴登堡挖掘',
+        variableId: 'hindenburg',
+        desc: '不知何故，它奏效了。',
         resource: 'hydrogen',
         resourcePerSecond: {
             'energy': -613,
@@ -991,8 +1055,9 @@ Game.buildingData = (function () {
 
     // Helium
     instance.heliumT1 = $.extend({}, baseProducerBuilding, {
-        name: 'Helium Drone',
-        desc: 'The Helium Drone scouts out the area on Saturn and picks out spots high in Helium which are then mined slowly by it.',        resource: 'helium',
+        name: '氦无人机',
+        variableId: 'drone',
+        desc: '氦无人机侦察土星区域，挑选出氦含量高的地点，然后由它缓慢开采。',        resource: 'helium',
         resourcePerSecond: {
             'helium': 1
         },
@@ -1003,8 +1068,9 @@ Game.buildingData = (function () {
     });
 
     instance.heliumT2 = $.extend({}, baseProducerBuilding, {
-        name: 'Helium Tanker',
-        desc: 'This huge tanker holds large amounts of Helium and transports it from Saturn to Earth through the vacuum of space.',
+        name: '氦油轮',
+        variableId: 'tanker',
+        desc: '这艘巨大的油轮装载大量氦气，并将其从土星通过太空真空运往地球。',
         resource: 'helium',
         resourcePerSecond: {
             'energy': -72,
@@ -1018,8 +1084,9 @@ Game.buildingData = (function () {
     });
 
     instance.heliumT3 = $.extend({}, baseProducerBuilding, {
-        name: 'Morphic Compressor',
-        desc: 'The Compressor packs helium densely into a small space so that it can be easily transported back to Earth.',
+        name: '形态压缩机',
+        variableId: 'compressor',
+        desc: '压缩机将氦气密集地压缩到一个小空间中，以便于运回地球。',
         resource: 'helium',
         resourcePerSecond: {
             'energy': -248,
@@ -1033,8 +1100,9 @@ Game.buildingData = (function () {
     });
 
     instance.heliumT4 = $.extend({}, baseProducerBuilding, {
-        name: 'Gas Giant Skimmer',
-        desc: 'Flying into Gas Giants\' atmospheres with a big bucket is the best plan we\'ve had yet!',
+        name: '气态巨行星撇取器',
+        variableId: 'skimmer',
+        desc: '带着一个大桶飞入气态巨行星的大气层是我们迄今为止最好的计划！',
         resource: 'helium',
         resourcePerSecond: {
             'energy': -670,
@@ -1049,8 +1117,9 @@ Game.buildingData = (function () {
 
     // Ice
     instance.iceT1 = $.extend({}, baseProducerBuilding, {
-        name: 'Ice Pickaxe',
-        desc: 'The Ice Pickaxe is the simplest way of mining frozen water, and although it is the cheapest, it is the slowest.',
+        name: '冰镐',
+        variableId: 'icePick',
+        desc: '冰镐是开采冰冻水最简单的方法，虽然最便宜，但也是最慢的。',
         resource: 'ice',
         resourcePerSecond: {
             'ice': 1
@@ -1062,8 +1131,9 @@ Game.buildingData = (function () {
     });
 
     instance.iceT2 = $.extend({}, baseProducerBuilding, {
-        name: 'Ice Drill',
-        desc: 'The Ice Drill is more effective than the Pickaxe and gains much more Ice every second. However, it does use electricity.',
+        name: '冰钻',
+        variableId: 'iceDrill',
+        desc: '冰钻比冰镐更有效，每秒可获得更多冰。但是，它确实需要电力。',
         resource: 'ice',
         resourcePerSecond: {
             'energy': -83,
@@ -1077,8 +1147,9 @@ Game.buildingData = (function () {
     });
 
     instance.iceT3 = $.extend({}, baseProducerBuilding, {
-        name: 'Ocean Freezer',
-        desc: 'With advanced technology, you are now able to turn Earth\'s water into high-quality Ice, previously only found on Pluto.',
+        name: '海洋冷冻机',
+        variableId: 'freezer',
+        desc: '凭借先进技术，你现在能够将地球的水转化为高品质的冰，以前只能在冥王星上找到。',
         resource: 'ice',
         resourcePerSecond: {
             'energy': -397,
@@ -1092,8 +1163,9 @@ Game.buildingData = (function () {
     });
 
     instance.iceT4 = $.extend({}, baseProducerBuilding, {
-        name: 'Mr Freeze',
-        desc: 'This robot is the coolest guy in the solar system.',
+        name: '急冻先生',
+        variableId: 'mrFreeze',
+        desc: '这个机器人是太阳系中最酷的家伙。',
         resource: 'ice',
         resourcePerSecond: {
             'energy': -1135,
@@ -1108,8 +1180,9 @@ Game.buildingData = (function () {
 
     // Meteorite
     instance.meteoriteT1 = $.extend({}, baseProducerBuilding, {
-        name: 'Meteorite Printer',
-        desc: 'Contruct an automated way of producing meteorite without you having to do anything.',
+        name: '陨石打印机',
+        variableId: 'printer',
+        desc: '构建一种自动化的陨石生产方式，你无需做任何事情。',
         resource: 'meteorite',
         resourcePerSecond: {
             'plasma': -3,
@@ -1122,8 +1195,9 @@ Game.buildingData = (function () {
     });
 
     instance.meteoriteT2 = $.extend({}, baseProducerBuilding, {
-        name: 'Meteorite Web',
-        desc: 'The Meteorite Web uses nano-fibres made while submerged in highly radioactive liquids to become strong enough to physically catch meteors from the Asteroid Belt. Plasma is required to refine the asteroids into Meteorite Ore, which can be usable.',
+        name: '陨石网',
+        variableId: 'web',
+        desc: '陨石网使用在高放射性液体中浸泡制成的纳米纤维，使其足够坚固，可以物理捕捉小行星带的流星。需要等离子体将小行星精炼成可用的陨石矿石。',
         resource: 'meteorite',
         resourcePerSecond: {
             'plasma': -21,
@@ -1138,8 +1212,9 @@ Game.buildingData = (function () {
 
     // Research
     instance.scienceT1 = $.extend({}, baseProducerBuilding, {
-        name: 'Home Science Kit',
-        desc: 'Build a small laboratory of your very own to start producing science. Each one produces 0.1 science per second.',
+        name: '家庭科学套件',
+        variableId: 'lab',
+        desc: '建立一个属于你自己的小型实验室来开始产生科学点数。每个每秒产生 0.1 科学点数。',
         resource: 'science',
         resourcePerSecond: {
             'science': 0.1
@@ -1152,8 +1227,9 @@ Game.buildingData = (function () {
     });
 
     instance.scienceT2 = $.extend({}, baseProducerBuilding, {
-        name: 'High School Science',
-        desc: 'Build a more effective laboratory to continue your quest into the realm of science at a significantly faster speed. Each one produces 1 science per second.',
+        name: '高中科学实验室',
+        variableId: 'labT2',
+        desc: '建立一个更有效的实验室，以明显更快的速度继续你对科学领域的探索。每个每秒产生 1 科学点数。',
         resource: 'science',
         resourcePerSecond: {
             'science': 1
@@ -1166,8 +1242,9 @@ Game.buildingData = (function () {
     });
 
     instance.scienceT3 = $.extend({}, baseProducerBuilding, {
-        name: 'University Laboratory',
-        desc: 'Build an even better version of the old laboratory to further your exploration of the realm of science. Each one produces 10 science per second.',
+        name: '大学实验室',
+        variableId: 'labT3',
+        desc: '建立一个比旧实验室更好的版本，以进一步探索科学领域。每个每秒产生 10 科学点数。',
         resource: 'science',
         resourcePerSecond: {
             'science': 10
@@ -1181,8 +1258,9 @@ Game.buildingData = (function () {
 
     // Solar System
     instance.rocketFuelT1 = $.extend({}, baseProducerBuilding, {
-        name: 'Chemical Plant',
-        desc: 'Chemical plants are used to make rocket fuel automatically.',
+        name: '化工厂',
+        variableId: 'chemicalPlant',
+        desc: '化工厂用于自动制造火箭燃料。',
         resource: 'rocketFuel',
         resourcePerSecond: {
             'rocketFuel': 0.2
@@ -1195,8 +1273,9 @@ Game.buildingData = (function () {
     });
 
     instance.rocketFuelT2 = $.extend({}, baseProducerBuilding, {
-        name: 'Oxidisation Chamber',
-        desc: 'Oxidisation Chambers make rocket fuel faster and more efficiently than chemical plants.',
+        name: '氧化室',
+        variableId: 'oxidisation',
+        desc: '氧化室比化工厂更快、更有效地制造火箭燃料。',
         resource: 'rocketFuel',
         resourcePerSecond: {
             'rocketFuel': 1.5
@@ -1209,8 +1288,9 @@ Game.buildingData = (function () {
     });
 
     instance.rocketFuelT3 = $.extend({}, baseProducerBuilding, {
-        name: 'Hydrazine Catalyst',
-        desc: 'These speed up the chemical reactions needed to make rocket fuel by using greenhouse gases such as methane.',
+        name: '肼催化剂',
+        variableId: 'hydrazine',
+        desc: '这些通过使用甲烷等温室气体来加速制造火箭燃料所需的化学反应。',
         resource: 'rocketFuel',
         resourcePerSecond: {
             'rocketFuel': 20

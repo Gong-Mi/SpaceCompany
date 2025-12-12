@@ -1,4 +1,5 @@
 .idea/
 node_modules/
+SpaceCompany-Android/app/.cxx/
 
 SpaceCompany.min.js

@@ -3,25 +3,25 @@ Game.resourceCategoryData = (function () {
     var instance = {};
 
     instance.energy = {
-        title: 'Energy',
+        title: '能量',
         category: 'energy'
     };
 
     instance.earth = {
         class: 'collapseEarth',
-        title: 'Earth Resources',
+        title: '地球资源',
         category: 'earth'
     };
 
     instance.innerSol = {
         class: 'collapseInnerPlanetary',
-        title: 'Inner Planetary Resources',
+        title: '内行星资源',
         category: 'innerSol'
     };
 
     instance.outerSol = {
         class: 'collapseOuterPlanetary',
-        title: 'Outer Planetary Resources',
+        title: '外行星资源',
         category: 'outerSol'
     };
 
@@ -39,8 +39,8 @@ Game.resourceData = (function () {
      *********************/
 
     instance.energy = {
-        name: 'Energy',
-        desc: 'Energy is created by power sources such as steam engines, solar power and advances even to fusion power and nuclear energy. The maximum you can hold to start with is 100,000 Energy, but batteries are unlockable which can increase this.',
+        name: '能量',
+        desc: '能量由蒸汽机、太阳能等动力源产生，甚至可以发展到聚变能和核能。开始时最多可储存 100,000 能量，但解锁电池后可以增加此上限。',
         icon: 'energyIcon',
         category: 'energy',
         baseCapacity: 50000,
@@ -48,8 +48,8 @@ Game.resourceData = (function () {
     };
 
     instance.plasma = {
-        name: 'Plasma',
-        desc: 'Plasma is the 4th state of matter and is used by Tier 4 machines and large space structures as an extreme power source for your company.',
+        name: '等离子体',
+        desc: '等离子体是物质的第四种状态，被 T4 机器和大型空间结构用作公司的极端动力源。',
         icon: 'plasmaIcon',
         category: 'energy',
         baseCapacity: 50,
@@ -57,8 +57,8 @@ Game.resourceData = (function () {
     };
 
     instance.uranium = {
-        name: 'Uranium',
-        desc: 'Metal is one of the primary resources. It is used for many things, including storage upgrades, machinery and most things in space.',
+        name: '铀',
+        desc: '铀是主要资源之一。它用于许多事物，包括存储升级、机械和太空中的大多数事物。',
         icon: 'uraniumIcon',
         category: 'energy',
         baseCapacity: 50,
@@ -66,8 +66,8 @@ Game.resourceData = (function () {
     };
 
     instance.lava = {
-        name: 'Lava',
-        desc: 'Hard to handle and only found in volcanoes, Lava is one of the hardest resources to get.',
+        name: '岩浆',
+        desc: '岩浆难以处理且只能在火山中找到，是最难获得的资源之一。',
         icon: 'lavaIcon',
         category: 'energy',
         baseCapacity: 50,
@@ -79,8 +79,8 @@ Game.resourceData = (function () {
      ********************/
 
     instance.oil = {
-        name: 'Oil',
-        desc: 'Oil is pumped up from the ground and is used to build Tier 2 resource gatherers.',
+        name: '石油',
+        desc: '石油是从地下抽取的，用于建造 T2 资源采集器。',
         icon: 'oilIcon',
         category: 'earth',
         baseCapacity: 50,
@@ -88,8 +88,8 @@ Game.resourceData = (function () {
     };
 
     instance.metal = {
-        name: 'Metal',
-        desc: 'Metal is one of the primary resources. It is used for many things, including storage upgrades, machinery and most things in space.',
+        name: '金属',
+        desc: '金属是主要资源之一。它用于许多事物，包括存储升级、机械和太空中的大多数事物。',
         icon: 'metalIcon',
         category: 'earth',
         baseCapacity: 50,
@@ -97,8 +97,8 @@ Game.resourceData = (function () {
     };
 
     instance.gem = {
-        name: 'Gem',
-        desc: 'Gems are one of the primary resources. They are used for advanced machines and for powerful tools and components. They are more useful in later game.',
+        name: '宝石',
+        desc: '宝石是主要资源之一。它们用于高级机器、强大的工具和组件。它们在游戏后期更有用。',
         icon: 'gemIcon',
         category: 'earth',
         baseCapacity: 50,
@@ -106,8 +106,8 @@ Game.resourceData = (function () {
     };
 
     instance.charcoal = {
-        name: 'Charcoal',
-        desc: 'Charcoal is a secondary tier resource and is used by Engines to produce power for your company. 1 Charcoal is created by burning wood',
+        name: '木炭',
+        desc: '木炭是二级资源，被引擎用来为你的公司生产动力。燃烧木材产生 1 个木炭。',
         icon: 'charcoalIcon',
         category: 'earth',
         baseCapacity: 50,
@@ -115,8 +115,8 @@ Game.resourceData = (function () {
     };
 
     instance.wood = {
-        name: 'Wood',
-        desc: 'Wood is one of the primary resources. It is used more often in early game for tools and buildings.',
+        name: '木头',
+        desc: '木头是主要资源之一。在游戏早期常用于工具和建筑。',
         icon: 'woodIcon',
         category: 'earth',
         baseCapacity: 50,
@@ -124,8 +124,8 @@ Game.resourceData = (function () {
     };
 
     instance.silicon = {
-        name: 'Silicon',
-        desc: 'Silicon is useful for automatic mining systems of the third tier. These will be very useful in building your first wonder. Despite being a high tier resource, it is found mainly on Earth by heating sand.',
+        name: '硅',
+        desc: '硅用于第三级自动采矿系统。这些在建造你的第一个奇观时非常有用。尽管是高级资源，但主要通过加热地球上的沙子获得。',
         icon: 'siliconIcon',
         category: 'earth',
         baseCapacity: 50,
@@ -138,8 +138,8 @@ Game.resourceData = (function () {
      ******************************/
 
     instance.lunarite = {
-        name: 'Lunarite',
-        desc: 'Lunarite is found on the Moon and is a rare type of resource not found on Earth. It is much stronger than regular metal but is a lot harder to get.',
+        name: '月球岩',
+        desc: '月球岩在月球上发现，是一种地球上没有的稀有资源。它比普通金属坚固得多，但也更难获得。',
         icon: 'lunariteIcon',
         category: 'innerSol',
         baseCapacity: 50,
@@ -147,8 +147,8 @@ Game.resourceData = (function () {
     };
 
     instance.methane = {
-        name: 'Methane',
-        desc: 'Methane is a gas found in abundance on Venus. It can be used to power your company much more effectively than solid fuel.',
+        name: '甲烷',
+        desc: '甲烷是金星上大量存在的一种气体。它可以比固体燃料更有效地为你的公司供电。',
         icon: 'methaneIcon',
         category: 'innerSol',
         baseCapacity: 50,
@@ -156,8 +156,8 @@ Game.resourceData = (function () {
     };
 
     instance.titanium = {
-        name: 'Titanium',
-        desc: 'Titanium is a metal found mostly on Mars. It is used for building strong machines and methane power plants.',
+        name: '钛',
+        desc: '钛主要发现于火星。它用于建造坚固的机器和甲烷发电厂。',
         icon: 'titaniumIcon',
         category: 'innerSol',
         baseCapacity: 50,
@@ -165,8 +165,8 @@ Game.resourceData = (function () {
     };
 
     instance.gold = {
-        name: 'Gold',
-        desc: 'Gold is a metal found inside asteroids. It is used to build some Wonders and for complex machinery.',
+        name: '金',
+        desc: '金是在小行星内部发现的金属。它用于建造一些奇观和复杂的机械。',
         icon: 'goldIcon',
         category: 'innerSol',
         baseCapacity: 50,
@@ -174,8 +174,8 @@ Game.resourceData = (function () {
     };
 
     instance.silver = {
-        name: 'Silver',
-        desc: 'Silver is another metal most commonly found in the asteroid belt.',
+        name: '银',
+        desc: '银是另一种最常在小行星带发现的金属。',
         icon: 'silverIcon',
         category: 'innerSol',
         baseCapacity: 50,
@@ -187,8 +187,8 @@ Game.resourceData = (function () {
      ******************************/
 
     instance.hydrogen = {
-        name: 'Hydrogen',
-        desc: 'Hydrogen is extremely common on gas giants such as Jupiter and Saturn.',
+        name: '氢',
+        desc: '氢在木星和土星等气态巨行星上极为常见。',
         icon: 'hydrogenIcon',
         category: 'outerSol',
         baseCapacity: 50,
@@ -196,8 +196,8 @@ Game.resourceData = (function () {
     };
 
     instance.helium = {
-        name: 'Helium',
-        desc: 'Helium is the second most common element on gas giants such as Jupiter and Saturn.',
+        name: '氦',
+        desc: '氦是木星和土星等气态巨行星上第二常见的元素。',
         icon: 'heliumIcon',
         category: 'outerSol',
         baseCapacity: 50,
@@ -205,8 +205,8 @@ Game.resourceData = (function () {
     };
 
     instance.ice = {
-        name: 'Ice',
-        desc: 'Ice, although it can be collected on Earth, is not nearly as profitable as flying to Pluto and back with space craft full of the stuff. It is mainly used for super-cooling technology necessary for Tier 4 machines.',
+        name: '冰',
+        desc: '冰，虽然可以在地球上收集，但远不如驾驶飞船飞往冥王星运回满载的冰那样有利可图。它主要用于 T4 机器所需的过冷技术。',
         icon: 'iceIcon',
         category: 'outerSol',
         baseCapacity: 50,
@@ -214,8 +214,8 @@ Game.resourceData = (function () {
     };
 
     instance.meteorite = {
-        name: 'Meteorite',
-        desc: 'Creating Meteorite is only possible from purer forms of energy than those created with earth technology. Therefore, Plasma is necessary to make the strong resource.',
+        name: '陨石',
+        desc: '制造陨石只能使用比地球技术产生的更纯净的能量形式。因此，需要等离子体来制造这种强力资源。',
         icon: 'meteoriteIcon',
         category: 'outerSol',
         baseCapacity: 50,
@@ -223,8 +223,8 @@ Game.resourceData = (function () {
     };
 
     instance.science = {
-        name: 'Science Production',
-        desc: 'Science is used for researching new technologies to further your progress in the game.',
+        name: '科学产出',
+        desc: '科学用于研究新技术，以进一步推动游戏进度。',
         icon: 'scienceIcon',
         baseCapacity: 1000000,
         unlocked: false
@@ -239,7 +239,7 @@ Game.storageData = (function(){
 
     // Storage Upgrades
     var baseUpgradeData = {
-        name: 'Storage Upgrade:',
+        name: '存储升级:',
         unlocked: true,
         costType: COST_TYPE.FIXED,
         current: 0,
@@ -247,7 +247,7 @@ Game.storageData = (function(){
         resource: undefined,
         displayNeedsUpdate: true,
 
-        buttonText: 'Upgrade Storage',
+        buttonText: '升级存储',
 
 
         apply: function (self) {
@@ -266,7 +266,7 @@ Game.storageData = (function(){
      *********************/
 
     instance.storageUpgradePlasma = $.extend({}, baseUpgradeData, {
-        desc: 'Upgrade your Plasma storage size to ',
+        desc: '升级你的等离子存储容量至',
         resource: 'plasma',
         cost: {
             'plasma': 50
@@ -274,7 +274,7 @@ Game.storageData = (function(){
     });
 
     instance.storageUpgradeUranium = $.extend({}, baseUpgradeData, {
-        desc: 'Upgrade your Uranium storage size to ',
+        desc: '升级你的铀存储容量至 ',
         resource: 'uranium',
         cost: {
             'uranium': 50,
@@ -283,7 +283,7 @@ Game.storageData = (function(){
     });
 
     instance.storageUpgradeLava = $.extend({}, baseUpgradeData, {
-        desc: 'Upgrade your Lava storage size to ',
+        desc: '升级你的岩浆存储容量至 ',
         resource: 'lava',
         cost: {
             'lava': 50,
@@ -296,7 +296,7 @@ Game.storageData = (function(){
      ********************/
 
     instance.storageUpgradeOil = $.extend({}, baseUpgradeData, {
-        desc: 'Upgrade your Oil storage size to ',
+        desc: '升级你的石油存储容量至 ',
         resource: 'oil',
         cost: {
             'oil': 50,
@@ -305,7 +305,7 @@ Game.storageData = (function(){
     });
 
     instance.storageUpgradeMetal = $.extend({}, baseUpgradeData, {
-        desc: 'Upgrade your Metal storage size to ',
+        desc: '升级你的金属存储容量至 ',
         resource: 'metal',
         cost: {
             'metal': 50
@@ -313,7 +313,7 @@ Game.storageData = (function(){
     });
 
     instance.storageUpgradeGem = $.extend({}, baseUpgradeData, {
-        desc: 'Upgrade your Gem storage size to ',
+        desc: '升级你的宝石存储容量至 ',
         resource: 'gem',
         cost: {
             'gem': 50,
@@ -322,7 +322,7 @@ Game.storageData = (function(){
     });
 
     instance.storageUpgradeCharcoal = $.extend({}, baseUpgradeData, {
-        desc: 'Upgrade your Charcoal storage size to ',
+        desc: '升级你的木炭存储容量至 ',
         resource: 'charcoal',
         cost: {
             'charcoal': 50,
@@ -331,7 +331,7 @@ Game.storageData = (function(){
     });
 
     instance.storageUpgradeWood = $.extend({}, baseUpgradeData, {
-        desc: 'Upgrade your Wood storage size to ',
+        desc: '升级你的木材存储容量至 ',
         resource: 'wood',
         cost: {
             'wood': 50,
@@ -340,7 +340,7 @@ Game.storageData = (function(){
     });
 
     instance.storageUpgradeSilicon = $.extend({}, baseUpgradeData, {
-        desc: 'Upgrade your Silicon storage size to ',
+        desc: '升级你的硅存储容量至 ',
         resource: 'silicon',
         cost: {
             'silicon': 50,
@@ -353,7 +353,7 @@ Game.storageData = (function(){
      ******************************/
 
     instance.storageUpgradeLunarite = $.extend({}, baseUpgradeData, {
-        desc: 'Upgrade your Lunarite storage size to ',
+        desc: '升级你的月球岩存储容量至 ',
         resource: 'lunarite',
         cost: {
             'lunarite': 50,
@@ -362,7 +362,7 @@ Game.storageData = (function(){
     });
 
     instance.storageUpgradeMethane = $.extend({}, baseUpgradeData, {
-        desc: 'Upgrade your Methane storage size to ',
+        desc: '升级你的甲烷存储容量至 ',
         resource: 'methane',
         cost: {
             'methane': 50,
@@ -371,7 +371,7 @@ Game.storageData = (function(){
     });
 
     instance.storageUpgradeTitanium = $.extend({}, baseUpgradeData, {
-        desc: 'Upgrade your Titanium storage size to ',
+        desc: '升级你的钛存储容量至 ',
         resource: 'titanium',
         cost: {
             'titanium': 50,
@@ -380,7 +380,7 @@ Game.storageData = (function(){
     });
 
     instance.storageUpgradeGold = $.extend({}, baseUpgradeData, {
-        desc: 'Upgrade your Gold storage size to ',
+        desc: '升级你的金存储容量至 ',
         resource: 'gold',
         cost: {
             'gold': 50,
@@ -389,7 +389,7 @@ Game.storageData = (function(){
     });
 
     instance.storageUpgradeSilver = $.extend({}, baseUpgradeData, {
-        desc: 'Upgrade your Silver storage size to ',
+        desc: '升级你的银存储容量至 ',
         resource: 'silver',
         cost: {
             'silver': 50,
@@ -402,7 +402,7 @@ Game.storageData = (function(){
      ******************************/
 
     instance.storageUpgradeHydrogen = $.extend({}, baseUpgradeData, {
-        desc: 'Upgrade your Hydrogen storage size to ',
+        desc: '升级你的氢存储容量至 ',
         resource: 'hydrogen',
         cost: {
             'hydrogen': 50,
@@ -411,7 +411,7 @@ Game.storageData = (function(){
     });
 
     instance.storageUpgradeHelium = $.extend({}, baseUpgradeData, {
-        desc: 'Upgrade your Helium storage size to ',
+        desc: '升级你的氦存储容量至 ',
         resource: 'helium',
         cost: {
             'helium': 50,
@@ -420,7 +420,7 @@ Game.storageData = (function(){
     });
 
     instance.storageUpgradeIce = $.extend({}, baseUpgradeData, {
-        desc: 'Upgrade your Ice storage size to ',
+        desc: '升级你的冰存储容量至 ',
         resource: 'ice',
         cost: {
             'ice': 50,
@@ -429,7 +429,7 @@ Game.storageData = (function(){
     });
 
     instance.storageUpgradeMeteorite = $.extend({}, baseUpgradeData, {
-        desc: 'Upgrade your Meteorite storage size to ',
+        desc: '升级你的陨石存储容量至 ',
         resource: 'meteorite',
         cost: {
             'meteorite': 50,

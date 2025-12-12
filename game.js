@@ -9,7 +9,8 @@ var Game = (function() {
         logoAnimating: true,
         timeSinceAutoSave: 0,
         activeNotifications: {},
-        lastFixedUpdate: new Date().getTime()
+        lastFixedUpdate: new Date().getTime(),
+        uiUpdateQueue: {}
     };
 
     instance.update_frame = function(time) {
@@ -91,6 +92,25 @@ var Game = (function() {
         for(var i = 0; i < self.uiComponents.length; i++) {
             self.uiComponents[i].update(delta);
         }
+        self.applyUiUpdates();
+    };
+
+    instance.applyUiUpdates = function() {
+        for (var id in this.uiUpdateQueue) {
+            var update = this.uiUpdateQueue[id];
+            var element = this.settings.getEl(id);
+
+            if (element.length > 0) {
+                // Filter out duplicate class names
+                var uniqueAdd = update.add.filter(function(v, i, a) { return a.indexOf(v) === i; });
+                var uniqueRemove = update.remove.filter(function(v, i, a) { return a.indexOf(v) === i; });
+
+                element.addClass(uniqueAdd.join(' '));
+                element.removeClass(uniqueRemove.join(' '));
+            }
+        }
+        // Clear the queue
+        this.uiUpdateQueue = {};
     };
 
     instance.updateTime = function(delta) {

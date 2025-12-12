@@ -180,59 +180,36 @@ function refreshPerSec(delta){
 	var perSecondMultiplier = (1 + (resourceEfficiencyTech.current * 0.01)) * (1 + (Game.stargaze.entries.darkMatter.count * dmBoost));
 
 	// Now we calculate the base per second
-	uraniumps = grinder * grinderOutput * perSecondMultiplier;
-	oilps = pump * pumpOutput * perSecondMultiplier;
-	metalps = miner * minerOutput * perSecondMultiplier;
-	gemps = gemMiner * gemMinerOutput * perSecondMultiplier;
-	charcoalps = 0;
-	woodps = woodcutter * woodcutterOutput * perSecondMultiplier;
-	lunariteps = moonWorker * moonWorkerOutput * perSecondMultiplier;
-	methaneps = vacuum * vacuumOutput * perSecondMultiplier;
-	titaniumps = explorer * explorerOutput * perSecondMultiplier;
-	goldps = droid * droidOutput * perSecondMultiplier;
-	silverps = scout * scoutOutput * perSecondMultiplier;
-	siliconps = blowtorch * blowtorchOutput * perSecondMultiplier;
-	lavaps = crucible * crucibleOutput * perSecondMultiplier;
-	hydrogenps = collector * collectorOutput * perSecondMultiplier;
-	heliumps = drone * droneOutput * perSecondMultiplier;
-	iceps = icePick * icePickOutput * perSecondMultiplier;
-	plasmaps = 0;
-	meteoriteps = 0;
-	rocketFuelps = 0;
-	antimatterps = 0;
-
-	// Science
 	var scienceEfficiencyTech = Game.tech.getTechData('scienceEfficiencyResearch');
 	var scienceMultiplier = (1 + (scienceEfficiencyTech.current * 0.02)) * (1 + (Game.stargaze.entries.darkMatter.count * dmBoost));
-	scienceps = ((lab*labOutput) + (labT2*labT2Output) + (labT3*labT3Output) + (labT4*labT4Output) + labT5*labT5Output) * scienceMultiplier;
+	Game.calculateDataDrivenResourceProduction(perSecondMultiplier, scienceMultiplier, energyLow, globalEnergyLock);
 
 	if (!energyLow && globalEnergyLock === false) {
-		// Add resource gain from machines
+		// Add resource gain from machines - Migrated to data-driven function
 
-        oilps +=  ((pumpjack*pumpjackOutput) + (oilField*oilFieldOutput) + (oilRig*oilRigOutput) + (fossilator*fossilatorOutput)) * perSecondMultiplier;
-        metalps +=  ((heavyDrill*heavyDrillOutput) + (gigaDrill*gigaDrillOutput) + (quantumDrill*quantumDrillOutput) + (multiDrill*multiDrillOutput)) * perSecondMultiplier;
-        gemps +=  ((advancedDrill*advancedDrillOutput) + (diamondDrill*diamondDrillOutput) + (carbyneDrill*carbyneDrillOutput) + (diamondChamber*diamondChamberOutput)) * perSecondMultiplier;
-        woodps +=  ((laserCutter*laserCutterOutput) + (deforester*deforesterOutput) + (infuser*infuserOutput) + (forest*forestOutput)) * perSecondMultiplier;
-        lunariteps +=  ((moonDrill*moonDrillOutput) + (moonQuarry*moonQuarryOutput) + (planetExcavator*planetExcavatorOutput) + (cloner*clonerOutput)) * perSecondMultiplier;
-        methaneps +=  ((suctionExcavator*suctionExcavatorOutput) + (spaceCow*spaceCowOutput) + (vent*ventOutput) + (interCow*interCowOutput)) * perSecondMultiplier;
-        titaniumps +=  ((lunariteDrill*lunariteDrillOutput) + (pentaDrill*pentaDrillOutput) + (titanDrill*titanDrillOutput) + (club*clubOutput)) * perSecondMultiplier;
-        goldps +=  ((destroyer*destroyerOutput) + (deathStar*deathStarOutput) + (actuator*actuatorOutput) + (philosopher*philosopherOutput)) * perSecondMultiplier;
-        silverps +=  ((spaceLaser*spaceLaserOutput) + (bertha*berthaOutput) + (cannon*cannonOutput) + (werewolf*werewolfOutput)) * perSecondMultiplier;
-        siliconps +=  ((scorcher*scorcherOutput) + (annihilator*annihilatorOutput) + (desert*desertOutput) + (tardis*tardisOutput)) * perSecondMultiplier;
-        uraniumps +=  ((cubic*cubicOutput) +(enricher*enricherOutput) + (recycler*recyclerOutput) + (planetNuke*planetNukeOutput)) * perSecondMultiplier;
-        lavaps +=  ((extractor*extractorOutput) + (extruder*extruderOutput) + (veluptuator*veluptuatorOutput) + (condensator*condensatorOutput)) * perSecondMultiplier;
-        hydrogenps +=  ((magnet*magnetOutput) + (eCell*eCellOutput) + (hindenburg*hindenburgOutput) + (harvester*harvesterOutput)) * perSecondMultiplier;
-        heliumps +=  ((tanker*tankerOutput) + (compressor*compressorOutput) + (skimmer*skimmerOutput) + (cage*cageOutput)) * perSecondMultiplier;
-        iceps +=  ((iceDrill*iceDrillOutput) + (freezer*freezerOutput) + (mrFreeze*mrFreezeOutput) + (overexchange*overexchangeOutput)) * perSecondMultiplier;
+        // oilps +=  ((pumpjack*pumpjackOutput) + (oilField*oilFieldOutput) + (oilRig*oilRigOutput) + (fossilator*fossilatorOutput)) * perSecondMultiplier;
+        // metalps +=  ((heavyDrill*heavyDrillOutput) + (gigaDrill*gigaDrillOutput) + (quantumDrill*quantumDrillOutput) + (multiDrill*multiDrillOutput)) * perSecondMultiplier;
+        // gemps +=  ((advancedDrill*advancedDrillOutput) + (diamondDrill*diamondDrillOutput) + (carbyneDrill*carbyneDrillOutput) + (diamondChamber*diamondChamberOutput)) * perSecondMultiplier;
+        // woodps +=  ((laserCutter*laserCutterOutput) + (deforester*deforesterOutput) + (infuser*infuserOutput) + (forest*forestOutput)) * perSecondMultiplier;
+        // lunariteps +=  ((moonDrill*moonDrillOutput) + (moonQuarry*moonQuarryOutput) + (planetExcavator*planetExcavatorOutput) + (cloner*clonerOutput)) * perSecondMultiplier;
+        // methaneps +=  ((suctionExcavator*suctionExcavatorOutput) + (spaceCow*spaceCowOutput) + (vent*ventOutput) + (interCow*interCowOutput)) * perSecondMultiplier;
+        // titaniumps +=  ((lunariteDrill*lunariteDrillOutput) + (pentaDrill*pentaDrillOutput) + (titanDrill*titanDrillOutput) + (club*clubOutput)) * perSecondMultiplier;
+        // goldps +=  ((destroyer*destroyerOutput) + (deathStar*deathStarOutput) + (actuator*actuatorOutput) + (philosopher*philosopherOutput)) * perSecondMultiplier;
+        // silverps +=  ((spaceLaser*spaceLaserOutput) + (bertha*berthaOutput) + (cannon*cannonOutput) + (werewolf*werewolfOutput)) * perSecondMultiplier;
+        // siliconps +=  ((scorcher*scorcherOutput) + (annihilator*annihilatorOutput) + (desert*desertOutput) + (tardis*tardisOutput)) * perSecondMultiplier;
+        // // uraniumps +=  ((cubic*cubicOutput) +(enricher*enricherOutput) + (recycler*recyclerOutput) + (planetNuke*planetNukeOutput)) * perSecondMultiplier;
+        // lavaps +=  ((extractor*extractorOutput) + (extruder*extruderOutput) + (veluptuator*veluptuatorOutput) + (condensator*condensatorOutput)) * perSecondMultiplier;
+        // hydrogenps +=  ((magnet*magnetOutput) + (eCell*eCellOutput) + (hindenburg*hindenburgOutput) + (harvester*harvesterOutput)) * perSecondMultiplier;
+        // heliumps +=  ((tanker*tankerOutput) + (compressor*compressorOutput) + (skimmer*skimmerOutput) + (cage*cageOutput)) * perSecondMultiplier;
+        // iceps +=  ((iceDrill*iceDrillOutput) + (freezer*freezerOutput) + (mrFreeze*mrFreezeOutput) + (overexchange*overexchangeOutput)) * perSecondMultiplier;
 
-        // Deduct resource use from machines
-        charcoalps -= charcoalEngine * charcoalEngineCharcoalInput;
-        methaneps -= methaneStation * methaneStationMethaneInput;
-        uraniumps -= nuclearStation * nuclearStationUraniumInput;
-        lavaps -= magmatic * magmaticLavaInput;
-        hydrogenps -= fusionReactor * fusionReactorHydrogenInput;
-        heliumps -= fusionReactor * fusionReactorHeliumInput;
-	}
+        		// Deduct resource use from machines - Migrated to data-driven function
+                // charcoalps -= charcoalEngine * charcoalEngineCharcoalInput;
+                // methaneps -= methaneStation * methaneStationMethaneInput;
+                // // uraniumps -= nuclearStation * nuclearStationUraniumInput;
+                // lavaps -= magmatic * magmaticLavaInput;
+                // hydrogenps -= fusionReactor * fusionReactorHydrogenInput;
+                // heliumps -= fusionReactor * fusionReactorHeliumInput;	}
 
 	if (charcoalToggled) {
 		var woodCost = woodburner * woodburnerWoodInput;
@@ -1318,4 +1295,64 @@ $('input[name="companyName"]').change(function(){
 
 function calculateKardashevLevel() {
 	return (Math.log10(calculateEnergyUse(1)-6))/10;
+}
+
+function calculateDataDrivenResourceProduction(perSecondMultiplier, scienceMultiplier, energyLow, globalEnergyLock) {
+    // Reset all resource production per second values
+    window.uraniumps = 0; 
+    window.oilps = 0;
+    window.metalps = 0;
+    window.gemps = 0;
+    window.charcoalps = 0;
+    window.woodps = 0;
+    window.lunariteps = 0;
+    window.methaneps = 0;
+    window.titaniumps = 0;
+    window.goldps = 0;
+    window.silverps = 0;
+    window.siliconps = 0;
+    window.lavaps = 0;
+    window.hydrogenps = 0;
+    window.heliumps = 0;
+    window.iceps = 0;
+    window.plasmaps = 0;
+    window.meteoriteps = 0;
+    window.rocketFuelps = 0;
+    window.antimatterps = 0;
+    window.scienceps = 0; 
+
+    for (var key in Game.buildingData) {
+        var data = Game.buildingData[key];
+        if (!data.variableId) continue; 
+
+        var count = window[data.variableId];
+        if (!count || count <= 0) continue;
+
+        if (data.resourcePerSecond) {
+            for (var res in data.resourcePerSecond) {
+                var val = data.resourcePerSecond[res];
+                
+                if (res === 'science') {
+                    window[res + 'ps'] += count * val * scienceMultiplier;
+                    continue; 
+                }
+
+                if (val > 0) {
+                    var consumesEnergy = (data.resourcePerSecond['energy'] || 0) < 0;
+                    if (!consumesEnergy) {
+                        window[res + 'ps'] += count * val * perSecondMultiplier;
+                    } else {
+                        if (!energyLow && globalEnergyLock === false) {
+                            window[res + 'ps'] += count * val * perSecondMultiplier;
+                        }
+                    }
+                } 
+                else if (val < 0) {
+                    if (!energyLow && globalEnergyLock === false) {
+                        window[res + 'ps'] += count * val; 
+                    }
+                }
+            }
+        }
+    }
 }

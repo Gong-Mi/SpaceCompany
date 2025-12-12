@@ -41,73 +41,63 @@ Game.settings = (function(){
         return element;
     };
 
+    instance._queueUpdate = function(id, add, remove) {
+        if (!Game.uiUpdateQueue[id]) {
+            Game.uiUpdateQueue[id] = { add: [], remove: [] };
+        }
+        Game.uiUpdateQueue[id].add = Game.uiUpdateQueue[id].add.concat(add);
+        Game.uiUpdateQueue[id].remove = Game.uiUpdateQueue[id].remove.concat(remove);
+    };
+
     instance.turnRedOnNegative = function(value, id) {
-        var element = this.getEl(id);
-        if(element.length === 0) {
-            console.error("Element not found: " + id);
-            return;
-        }
-
-        if(value < 0){
-            if(this.entries.boldEnabled === true){
-                element.addClass('red bold');
+        var add = [], remove = [];
+        if (value < 0) {
+            add.push('red');
+            if (this.entries.boldEnabled) {
+                add.push('bold');
             } else {
-                element.addClass('red');
-                element.removeClass('bold');
+                remove.push('bold');
             }
-
-            return true;
+        } else {
+            remove.push('red', 'bold');
         }
-        else{
-            element.removeClass('red bold');
-            return false;
-        }
+        this._queueUpdate(id, add, remove);
     };
 
     instance.turnRed = function(value, target, id) {
-        var element = this.getEl(id);
-        if(element.length === 0) {
-            console.error("Element not found: " + id);
-            return;
-        }
-
-        if(value < target){
-            if(this.entries.boldEnabled === true){
-                element.addClass('red bold');
+        var add = [], remove = [];
+        if (value < target) {
+            add.push('red');
+            if (this.entries.boldEnabled) {
+                add.push('bold');
             } else {
-                element.addClass('red');
-                element.removeClass('bold');
+                remove.push('bold');
             }
+        } else {
+            remove.push('red', 'bold');
         }
-        else{
-            element.removeClass('red bold');
-        }
+        this._queueUpdate(id, add, remove);
     };
 
     instance.turnRedOrGreen = function(value, target, id) {
-        var element = this.getEl(id);
-        if(element.length === 0) {
-            console.error("Element not found: " + id);
-            return;
-        }
-
-        if(value === 0){
-            if(this.entries.boldEnabled === true){
-                element.addClass('red bold');
+        var add = [], remove = [];
+        if (value === 0) {
+            add.push('red');
+            if (this.entries.boldEnabled) {
+                add.push('bold');
             } else {
-                element.addClass('red');
-                element.removeClass('bold');
+                remove.push('bold');
             }
-        }
-        else{
-            element.removeClass('red bold');
+        } else {
+            remove.push('red', 'bold');
         }
 
-        if(value >= target && target >= 0) {
-            element.addClass('green');
+        if (value >= target && target >= 0) {
+            add.push('green');
         } else {
-            element.removeClass('green');
+            remove.push('green');
         }
+        this._queueUpdate(id, add, remove);
     };
 
     instance.save = function(data) {

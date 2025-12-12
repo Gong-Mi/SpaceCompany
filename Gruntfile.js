@@ -16,7 +16,7 @@ module.exports = function(grunt) {
         stripBanners: true
       },
       dist: {
-        src: ['variable.js', 'utils.js', 'game.js', 'achievements.js', 'constants.js', 'core.js', 'loading.js', 'notification.js', 'resources.js', 'saving.js', 'solarSystem.js', 'solCenter.js', 'wonder.js', 'interstellar.js'],
+        src: ['variable.js', 'game.js', 'utils.js', 'updates.js', 'achievements.js', 'data/achievementsData.js', 'constants.js', 'statistics.js', 'resource.js', 'data/resourceData.js', 'building.js', 'data/buildingData.js', 'tech.js', 'data/techData.js', 'data/interstellarData.js', 'data/starData.js', 'settings.js', 'interstellar.js', 'star.js', 'rocketParts.js', 'rocket.js', 'stargaze.js', 'data/stargazeData.js', 'ui/databoundElement.js', 'ui/gameTabUI.js', 'ui/resourceObserver.js', 'ui/interstellarUI.js', 'ui/achievementUI.js', 'ui/statisticUI.js', 'ui/stargazeUI.js', 'ui/resourceUI.js', 'ui/techUI.js', 'ui/legacyUI.js', 'core.js', 'notification.js', 'saving.js', 'resources.js', 'science.js', 'solarSystem.js', 'wonder.js', 'solCenter.js'],
         dest: '<%= pkg.name %>.min.js'
       }
     },
