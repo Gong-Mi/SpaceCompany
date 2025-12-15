@@ -66,7 +66,7 @@ class GameViewModel(private val repository: SaveGameRepository) : ViewModel() {
 
     fun getCost(basePrice: Double, count: Long, multiplier: Double = 1.1): Double {
         // This might now be implemented in C, but for UI display purposes, keeping it here is fine.
-        return kotlin.math.floor(basePrice * kotlin.math.pow(multiplier, count.toDouble()))
+        return java.lang.Math.floor(basePrice * java.lang.Math.pow(multiplier, count.toDouble()))
     }
     
     fun buyBuilding(buildingId: String) {
@@ -98,5 +98,13 @@ class GameViewModel(private val repository: SaveGameRepository) : ViewModel() {
             repository.deleteSave()
             _gameState.value = GameState()
         }
+    }
+
+    fun buildRocket() {
+        // Will be implemented later
+    }
+
+    fun explorePlanet(planetId: String) {
+        // Will be implemented later
     }
 }

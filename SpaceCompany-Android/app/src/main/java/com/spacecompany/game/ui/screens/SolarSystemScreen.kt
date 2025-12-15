@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.spacecompany.game.data.PlanetDataRepository
 import com.spacecompany.game.model.GameState
+import com.spacecompany.game.model.Resource
 import java.text.DecimalFormat
 
 @Composable

@@ -34,7 +34,7 @@ fun TechRow(
         Spacer(Modifier.width(16.dp))
         if (techState.current < techData.maxLevel) {
             Button(onClick = onBuy, enabled = canAfford) {
-                Text(techData.buttonText ?: "Research")
+                Text("Research")
             }
         } else {
             Text("Researched")

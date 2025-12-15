@@ -22,9 +22,6 @@ class MainActivity : ComponentActivity() {
         // Get ViewModel using the factory
         val gameViewModel: GameViewModel by viewModels { viewModelFactory }
 
-        // Verify JNI Bridge
-        Log.d("JNI_TEST", JNIBridge.stringFromJNI())
-
         setContent {
             SpaceCompanyTheme {
                 MainScreen(gameViewModel = gameViewModel)

@@ -6,3 +6,5 @@ SpaceCompany.min.js
 
 # Android project build cache
 SpaceCompany-Android/.gradle/
+SpaceCompany-Android/app/build/
+/build/
