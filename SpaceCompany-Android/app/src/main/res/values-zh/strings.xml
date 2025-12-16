@@ -5,4 +5,26 @@
     <string name="tab_settings">设置</string>
     <string name="tab_solar_system">太阳系</string>
     <string name="tab_wonders">奇观</string>
+
+    <string name="resource_energy">能量</string>
+    <string name="resource_plasma">等离子</string>
+    <string name="resource_uranium">铀</string>
+    <string name="resource_lava">岩浆</string>
+    <string name="resource_oil">石油</string>
+    <string name="resource_metal">金属</string>
+    <string name="resource_gem">宝石</string>
+    <string name="resource_charcoal">木炭</string>
+    <string name="resource_wood">木头</string>
+    <string name="resource_silicon">硅</string>
+    <string name="resource_lunarite">月球石</string>
+    <string name="resource_methane">甲烷</string>
+    <string name="resource_titanium">钛</string>
+    <string name="resource_gold">黄金</string>
+    <string name="resource_silver">白银</string>
+    <string name="resource_hydrogen">氢</string>
+    <string name="resource_helium">氦</string>
+    <string name="resource_ice">冰</string>
+    <string name="resource_meteorite">陨石</string>
+    <string name="resource_science">科学</string>
+    <string name="resource_rocketfuel">火箭燃料</string>
 </resources>

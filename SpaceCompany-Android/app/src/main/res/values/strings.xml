@@ -5,4 +5,26 @@
     <string name="tab_settings">Settings</string>
     <string name="tab_solar_system">Solar System</string>
     <string name="tab_wonders">Wonders</string>
+
+    <string name="resource_energy">Energy</string>
+    <string name="resource_plasma">Plasma</string>
+    <string name="resource_uranium">Uranium</string>
+    <string name="resource_lava">Lava</string>
+    <string name="resource_oil">Oil</string>
+    <string name="resource_metal">Metal</string>
+    <string name="resource_gem">Gem</string>
+    <string name="resource_charcoal">Charcoal</string>
+    <string name="resource_wood">Wood</string>
+    <string name="resource_silicon">Silicon</string>
+    <string name="resource_lunarite">Lunarite</string>
+    <string name="resource_methane">Methane</string>
+    <string name="resource_titanium">Titanium</string>
+    <string name="resource_gold">Gold</string>
+    <string name="resource_silver">Silver</string>
+    <string name="resource_hydrogen">Hydrogen</string>
+    <string name="resource_helium">Helium</string>
+    <string name="resource_ice">Ice</string>
+    <string name="resource_meteorite">Meteorite</string>
+    <string name="resource_science">Science</string>
+    <string name="resource_rocketfuel">Rocket Fuel</string>
 </resources>

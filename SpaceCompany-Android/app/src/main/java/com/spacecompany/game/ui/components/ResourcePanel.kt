@@ -1,25 +1,35 @@
 package com.spacecompany.game.ui.components
 
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.Icon
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import com.spacecompany.game.R
-import com.spacecompany.game.model.Resource
-import com.spacecompany.game.model.ResourceState
-import java.text.DecimalFormat
+import androidx.compose.ui.res.stringResource
+import androidx.annotation.StringRes
+
+// Helper function to map Resource enum to its string resource ID
+@StringRes
+fun getResourceNameId(resource: Resource): Int {
+    return when (resource) {
+        Resource.ENERGY -> R.string.resource_energy
+        Resource.PLASMA -> R.string.resource_plasma
+        Resource.URANIUM -> R.string.resource_uranium
+        Resource.LAVA -> R.string.resource_lava
+        Resource.OIL -> R.string.resource_oil
+        Resource.METAL -> R.string.resource_metal
+        Resource.GEM -> R.string.resource_gem
+        Resource.CHARCOAL -> R.string.resource_charcoal
+        Resource.WOOD -> R.string.resource_wood
+        Resource.SILICON -> R.string.resource_silicon
+        Resource.LUNARITE -> R.string.resource_lunarite
+        Resource.METHANE -> R.string.resource_methane
+        Resource.TITANIUM -> R.string.resource_titanium
+        Resource.GOLD -> R.string.resource_gold
+        Resource.SILVER -> R.string.resource_silver
+        Resource.HYDROGEN -> R.string.resource_hydrogen
+        Resource.HELIUM -> R.string.resource_helium
+        Resource.ICE -> R.string.resource_ice
+        Resource.METEORITE -> R.string.resource_meteorite
+        Resource.SCIENCE -> R.string.resource_science
+        Resource.ROCKETFUEL -> R.string.resource_rocketfuel
+    }
+}
 
 @Composable
 fun ResourcePanel(
@@ -60,7 +70,7 @@ fun ResourceRow(
             modifier = Modifier.weight(0.1f)
         )
         Text(
-            text = resource.id.name,
+            text = stringResource(id = getResourceNameId(resource.id)),
             modifier = Modifier.weight(0.3f)
         )
         Text(
