@@ -21,7 +21,26 @@ void core_buy_building(GameState* gs, const char* buildingId);
 void core_buy_tech(GameState* gs, const char* techId);
 double get_cost(double basePrice, long count);
 
+// Helper function to safely get a double value from a cJSON object
+double get_json_double(cJSON* obj, const char* key, double default_val) {
+    cJSON* item = cJSON_GetObjectItem(obj, key);
+    if (item && cJSON_IsNumber(item)) {
+        return item->valuedouble;
+    }
+    return default_val;
+}
+
+// Helper function to safely get an int value from a cJSON object
+int get_json_int(cJSON* obj, const char* key, int default_val) {
+    cJSON* item = cJSON_GetObjectItem(obj, key);
+    if (item && cJSON_IsNumber(item)) {
+        return item->valueint;
+    }
+    return default_val;
+}
+
 static bool static_data_initialized = false;
+
 
 void init_all_data() {
     if (!static_data_initialized) {
@@ -155,24 +174,28 @@ void parse_game_state_from_json(const cJSON* root, GameState* gs) {
     if (root == NULL) return;
 
     cJSON* resources_json = cJSON_GetObjectItem(root, "resources");
-    for (int i = 0; i < RESOURCE_COUNT; i++) {
-        cJSON* resource_item_json = cJSON_GetObjectItem(resources_json, resource_keys[i]);
-        if (resource_item_json) {
-            gs->resources[i].id = (Resource)i;
-            gs->resources[i].current = cJSON_GetObjectItem(resource_item_json, "current")->valuedouble;
-            gs->resources[i].capacity = cJSON_GetObjectItem(resource_item_json, "capacity")->valuedouble;
-            gs->resources[i].unlocked = cJSON_GetObjectItem(resource_item_json, "unlocked")->valueint;
+    if (resources_json) {
+        for (int i = 0; i < RESOURCE_COUNT; i++) {
+            cJSON* resource_item_json = cJSON_GetObjectItem(resources_json, resource_keys[i]);
+            if (resource_item_json) {
+                gs->resources[i].id = (Resource)i;
+                gs->resources[i].current = get_json_double(resource_item_json, "current", 0.0);
+                gs->resources[i].capacity = get_json_double(resource_item_json, "capacity", 0.0);
+                gs->resources[i].unlocked = get_json_int(resource_item_json, "unlocked", 0);
+            }
         }
     }
 
     cJSON* buildings_json = cJSON_GetObjectItem(root, "buildings");
     int building_count = 0;
     cJSON* building_item_json = NULL;
-    cJSON_ArrayForEach(building_item_json, buildings_json) {
-        if (building_count < 100) {
-            gs->buildings[building_count].id = strdup(building_item_json->string);
-            gs->buildings[building_count].count = (long)cJSON_GetObjectItem(building_item_json, "count")->valuedouble;
-            building_count++;
+    if (buildings_json) {
+        cJSON_ArrayForEach(building_item_json, buildings_json) {
+            if (building_count < 100) {
+                gs->buildings[building_count].id = strdup(building_item_json->string);
+                gs->buildings[building_count].count = (long)get_json_double(building_item_json, "count", 0.0);
+                building_count++;
+            }
         }
     }
     gs->num_building_types = building_count;
@@ -180,12 +203,14 @@ void parse_game_state_from_json(const cJSON* root, GameState* gs) {
     cJSON* techs_json = cJSON_GetObjectItem(root, "techs");
     int tech_count = 0;
     cJSON* tech_item_json = NULL;
-    cJSON_ArrayForEach(tech_item_json, techs_json) {
-        if (tech_count < 100) {
-            gs->techs[tech_count].id = strdup(tech_item_json->string);
-            gs->techs[tech_count].current = cJSON_GetObjectItem(tech_item_json, "current")->valueint;
-            gs->techs[tech_count].unlocked = cJSON_GetObjectItem(tech_item_json, "unlocked")->valueint;
-            tech_count++;
+    if (techs_json) {
+        cJSON_ArrayForEach(tech_item_json, techs_json) {
+            if (tech_count < 100) {
+                gs->techs[tech_count].id = strdup(tech_item_json->string);
+                gs->techs[tech_count].current = get_json_int(tech_item_json, "current", 0);
+                gs->techs[tech_count].unlocked = get_json_int(tech_item_json, "unlocked", 0);
+                tech_count++;
+            }
         }
     }
     gs->num_tech_types = tech_count;
@@ -193,17 +218,20 @@ void parse_game_state_from_json(const cJSON* root, GameState* gs) {
     cJSON* modifiers_json = cJSON_GetObjectItem(root, "modifiers");
     int mod_count = 0;
     cJSON* mod_item_json = NULL;
-    cJSON_ArrayForEach(mod_item_json, modifiers_json) {
-        if (mod_count < 50) {
-            strncpy(gs->modifiers[mod_count].key, mod_item_json->string, 63);
-            gs->modifiers[mod_count].value = mod_item_json->valuedouble;
-            mod_count++;
+    if (modifiers_json) {
+        cJSON_ArrayForEach(mod_item_json, modifiers_json) {
+            if (mod_count < 50) {
+                strncpy(gs->modifiers[mod_count].key, mod_item_json->string, 63);
+                gs->modifiers[mod_count].key[63] = '\0'; // Ensure null-termination
+                gs->modifiers[mod_count].value = mod_item_json->valuedouble;
+                mod_count++;
+            }
         }
     }
     gs->num_modifiers = mod_count;
 
-    gs->rocketIsBuilt = cJSON_GetObjectItem(root, "rocketIsBuilt")->valueint;
-    gs->globalEnergyLock = cJSON_GetObjectItem(root, "globalEnergyLock")->valueint;
+    gs->rocketIsBuilt = get_json_int(root, "rocketIsBuilt", 0);
+    gs->globalEnergyLock = get_json_int(root, "globalEnergyLock", 0);
 }
 
 char* serialize_game_state_to_json(const GameState* gs) {
