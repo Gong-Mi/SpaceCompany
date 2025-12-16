@@ -65,7 +65,7 @@ fun ResourcePanel(
     filteredResources.forEach { Log.d("ResourcePanel", "  - Visible resource: ${it.id.name}, current: ${it.current}, unlocked: ${it.unlocked}") }
 
     LazyColumn(modifier = modifier) {
-        items(resources) { resource ->
+        items(resources.filter { it.unlocked || it.current > 0 || it.id == Resource.METAL || it.id == Resource.WOOD || it.id == Resource.GEM }) { resource ->
             ResourceRow(
                 resource = resource,
                 onResourceSelected = { onResourceSelected(resource.id) }

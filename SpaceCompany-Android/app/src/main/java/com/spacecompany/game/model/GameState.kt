@@ -13,6 +13,10 @@ data class GameState(
     val companyName: String = "Space Company",
 
     val resources: Map<Resource, ResourceState> = Resource.values().associateWith {
+        val isUnlocked = when(it) {
+            Resource.METAL, Resource.WOOD, Resource.GEM -> true
+            else -> false
+        }
         ResourceState(
             id = it,
             capacity = 50.0,
@@ -20,7 +24,8 @@ data class GameState(
                 Resource.METAL -> 100.0
                 Resource.WOOD -> 50.0
                 else -> 0.0
-            }
+            },
+            unlocked = isUnlocked
         )
     },
 
