@@ -13,7 +13,15 @@ data class GameState(
     val companyName: String = "Space Company",
 
     val resources: Map<Resource, ResourceState> = Resource.values().associateWith {
-        ResourceState(id = it, capacity = 50.0) // Default capacity, will need to load this from data
+        ResourceState(
+            id = it,
+            capacity = 50.0,
+            current = when (it) {
+                Resource.METAL -> 100.0
+                Resource.WOOD -> 50.0
+                else -> 0.0
+            }
+        )
     },
 
     val buildings: Map<String, BuildingState> = GameDataRepository.buildings.keys.associateWith { BuildingState(id = it) },
