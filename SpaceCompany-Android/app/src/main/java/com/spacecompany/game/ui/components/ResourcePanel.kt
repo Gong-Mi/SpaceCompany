@@ -1,8 +1,28 @@
 package com.spacecompany.game.ui.components
 
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.annotation.StringRes
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import com.spacecompany.game.R
+import com.spacecompany.game.model.Resource
+import com.spacecompany.game.model.ResourceState
+import java.text.DecimalFormat
 
+import androidx.annotation.StringRes
 // Helper function to map Resource enum to its string resource ID
 @StringRes
 fun getResourceNameId(resource: Resource): Int {
