@@ -4,6 +4,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <math.h>
+#include <stdio.h> // Added for local debug
 #include "cJSON.h"
 #include "game_state.h"
 #include "game_data.h"
@@ -24,8 +25,18 @@ double get_cost(double basePrice, long count);
 // Helper function to safely get a double value from a cJSON object
 double get_json_double(const cJSON* obj, const char* key, double default_val) {
     cJSON* item = cJSON_GetObjectItem(obj, key);
-    if (item && cJSON_IsNumber(item)) {
-        return item->valuedouble;
+    if (item) {
+        if (cJSON_IsNumber(item)) {
+            // Robust check: Standard cJSON sets both, but if one is missing/zero unexpectedly, use the other
+            if (item->valuedouble != 0.0) {
+                 return item->valuedouble;
+            } else {
+                 // Fallback or actual 0
+                 return (double)item->valueint;
+            }
+        }
+        // Debug print for non-number types (visible in local test)
+        printf("DEBUG: key '%s' found but is not a number. Type: %d\n", key, item->type);
     }
     return default_val;
 }
