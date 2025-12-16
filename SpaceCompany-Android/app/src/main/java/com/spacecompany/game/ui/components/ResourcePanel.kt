@@ -28,7 +28,7 @@ fun ResourcePanel(
     onResourceSelected: (Resource) -> Unit
 ) {
     LazyColumn(modifier = modifier) {
-        items(resources.filter { it.unlocked || it.current > 0 || it.id == Resource.METAL }) { resource ->
+        items(resources.filter { it.unlocked || it.current > 0 || it.id == Resource.METAL || it.id == Resource.WOOD || it.id == Resource.GEM }) { resource ->
             ResourceRow(
                 resource = resource,
                 onResourceSelected = { onResourceSelected(resource.id) }
