@@ -232,6 +232,11 @@ void parse_game_state_from_json(const cJSON* root, GameState* gs) {
 
     gs->rocketIsBuilt = get_json_int(root, "rocketIsBuilt", 0);
     gs->globalEnergyLock = get_json_int(root, "globalEnergyLock", 0);
+
+    // Force unlock starter resources to prevent soft-lock if JSON is missing data
+    if (gs->resources[METAL].unlocked == 0) gs->resources[METAL].unlocked = 1;
+    if (gs->resources[WOOD].unlocked == 0) gs->resources[WOOD].unlocked = 1;
+    if (gs->resources[GEM].unlocked == 0) gs->resources[GEM].unlocked = 1;
 }
 
 char* serialize_game_state_to_json(const GameState* gs) {
