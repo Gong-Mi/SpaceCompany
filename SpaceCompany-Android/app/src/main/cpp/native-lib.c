@@ -22,7 +22,7 @@ void core_buy_tech(GameState* gs, const char* techId);
 double get_cost(double basePrice, long count);
 
 // Helper function to safely get a double value from a cJSON object
-double get_json_double(cJSON* obj, const char* key, double default_val) {
+double get_json_double(const cJSON* obj, const char* key, double default_val) {
     cJSON* item = cJSON_GetObjectItem(obj, key);
     if (item && cJSON_IsNumber(item)) {
         return item->valuedouble;
@@ -31,7 +31,7 @@ double get_json_double(cJSON* obj, const char* key, double default_val) {
 }
 
 // Helper function to safely get an int value from a cJSON object
-int get_json_int(cJSON* obj, const char* key, int default_val) {
+int get_json_int(const cJSON* obj, const char* key, int default_val) {
     cJSON* item = cJSON_GetObjectItem(obj, key);
     if (item && cJSON_IsNumber(item)) {
         return item->valueint;
@@ -53,7 +53,7 @@ void init_all_data() {
 JNIEXPORT jstring JNICALL
 Java_com_spacecompany_game_JNIBridge_tick(
         JNIEnv* env,
-        jobject /* this */,
+        jobject thiz /* this */,
         jstring gameStateJson,
         jdouble delta) {
 
