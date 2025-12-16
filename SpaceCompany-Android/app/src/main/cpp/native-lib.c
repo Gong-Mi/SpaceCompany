@@ -240,6 +240,7 @@ char* serialize_game_state_to_json(const GameState* gs) {
     cJSON* resources_json = cJSON_CreateObject();
     for (int i = 0; i < RESOURCE_COUNT; i++) {
         cJSON* resource_item_json = cJSON_CreateObject();
+        cJSON_AddStringToObject(resource_item_json, "id", resource_keys[i]);
         cJSON_AddNumberToObject(resource_item_json, "current", gs->resources[i].current);
         cJSON_AddNumberToObject(resource_item_json, "perSecond", gs->resources[i].perSecond);
         cJSON_AddNumberToObject(resource_item_json, "capacity", gs->resources[i].capacity);
