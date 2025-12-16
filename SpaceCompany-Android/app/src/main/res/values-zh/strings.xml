@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">太空公司</string>
+    <string name="tab_resources">资源</string>
+    <string name="tab_research">研究</string>
+    <string name="tab_settings">设置</string>
+    <string name="tab_solar_system">太阳系</string>
+    <string name="tab_wonders">奇观</string>
+</resources>

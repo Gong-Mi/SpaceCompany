@@ -4,21 +4,25 @@ import androidx.compose.material3.Tab
 import androidx.compose.material3.TabRow
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import android.util.Log
+import com.spacecompany.game.R
 
 @Composable
 fun GameTabs(
     selectedIndex: Int,
     onTabSelected: (Int) -> Unit
 ) {
-    val tabs = listOf("Resources", "Research", "Settings", "Solar System", "Wonders")
-
-    Log.d("GameTabs", "Composing GameTabs with ${tabs.size} tabs. Selected index: $selectedIndex")
+    val tabs = listOf(
+        stringResource(R.string.tab_resources),
+        stringResource(R.string.tab_research),
+        stringResource(R.string.tab_settings),
+        stringResource(R.string.tab_solar_system),
+        stringResource(R.string.tab_wonders)
+    )
 
     TabRow(selectedTabIndex = selectedIndex) {
         tabs.forEachIndexed { index, title ->
-            Log.d("GameTabs", "Composing Tab: $title")
             Tab(text = { Text(title) },
                 selected = selectedIndex == index,
                 onClick = { onTabSelected(index) }
