@@ -15,9 +15,7 @@ fun GameTopAppBar(
     isEnergyLow: Boolean
 ) {
     CenterAlignedTopAppBar(
-        title = {
-            Text(title)
-        },
+                title = { Text("Space Company (Debug v1)") },
         actions = {
             if (isEnergyLow) {
                 Text("Energy Low!", color = Color.Red)
