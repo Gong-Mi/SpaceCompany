@@ -1,31 +1,41 @@
 package com.spacecompany.game
 
 import android.os.Bundle
-import android.util.Log
+import android.webkit.WebSettings
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.viewModels
-import com.spacecompany.game.data.SaveGameRepository
-import com.spacecompany.game.ui.screens.MainScreen
-import com.spacecompany.game.ui.theme.SpaceCompanyTheme
-import com.spacecompany.game.viewmodel.GameViewModel
-import com.spacecompany.game.viewmodel.GameViewModelFactory
 
 class MainActivity : ComponentActivity() {
+    private lateinit var webView: WebView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        
+        webView = WebView(this)
+        setContentView(webView)
 
-        // Instantiate repository and factory
-        val saveGameRepository = SaveGameRepository(this)
-        val viewModelFactory = GameViewModelFactory(saveGameRepository)
+        val settings = webView.settings
+        settings.javaScriptEnabled = true
+        settings.domStorageEnabled = true // Essential for game saves (LocalStorage)
+        settings.loadWithOverviewMode = true
+        settings.useWideViewPort = true
+        settings.builtInZoomControls = true
+        settings.displayZoomControls = false
+        settings.allowFileAccess = true
+        
+        // Ensure links handle within the webview (though it's a single page app)
+        webView.webViewClient = WebViewClient()
+        
+        // Load the local index.html
+        webView.loadUrl("file:///android_asset/www/index.html")
+    }
 
-        // Get ViewModel using the factory
-        val gameViewModel: GameViewModel by viewModels { viewModelFactory }
-
-        setContent {
-            SpaceCompanyTheme {
-                MainScreen(gameViewModel = gameViewModel)
-            }
+    override fun onBackPressed() {
+        if (webView.canGoBack()) {
+            webView.goBack()
+        } else {
+            super.onBackPressed()
         }
     }
 }

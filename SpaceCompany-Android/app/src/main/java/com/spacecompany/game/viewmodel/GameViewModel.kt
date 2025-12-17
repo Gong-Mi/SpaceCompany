@@ -27,6 +27,27 @@ class GameViewModel(private val repository: SaveGameRepository) : ViewModel() {
             val savedGame = repository.savedGame.first()
             if (savedGame != null) {
                 _gameState.value = savedGame
+            } else {
+                // Debug: Inject rich start state
+                val debugResources = Resource.values().associateWith {
+                    ResourceState(
+                        id = it,
+                        capacity = 5000.0,
+                        current = 1000.0,
+                        unlocked = true // Unlock everything for debug
+                    )
+                }
+                
+                // Need to manually set building counts as the map is immutable in GameState default
+                // We create a new mutable map based on the default one
+                val debugBuildings = GameState().buildings.toMutableMap()
+                debugBuildings["miner"] = debugBuildings["miner"]!!.copy(count = 5)
+
+                _gameState.value = GameState(
+                    resources = debugResources,
+                    buildings = debugBuildings,
+                    companyName = "Rich Start Co."
+                )
             }
             lastUpdateTime = System.currentTimeMillis()
             startGameLoop()
