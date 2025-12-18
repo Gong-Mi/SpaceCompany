@@ -57,6 +57,24 @@ function getMaxEnergy() {
 // Gain Buttons
 
 function gainResource(resource){
+    // Debugging: Ensure gainNum is valid
+    if (typeof gainNum === 'undefined' || gainNum <= 0) {
+        console.warn("Invalid gainNum: " + gainNum + ", resetting to 1");
+        gainNum = 1;
+    }
+
+    console.log("gainResource called for: " + resource + ", gainNum: " + gainNum);
+
+    var current = getResource(resource);
+    var storage = getStorage(resource);
+    
+    console.log("Current: " + current + ", Storage: " + storage);
+
+    if (current === undefined || storage === undefined) {
+        console.error("Error: Resource or Storage is undefined for " + resource);
+        return;
+    }
+
 	if(resource === RESOURCE.Plasma){
 		if(getResource(RESOURCE.Energy) >= 1000 * gainNum && getResource(RESOURCE.Hydrogen) >= 10 * gainNum && getResource(RESOURCE.Plasma) < getMaxPlasma()){
 			Game.resources.addResource(RESOURCE.Plasma, gainNum);
@@ -79,10 +97,14 @@ function gainResource(resource){
 			}
 		}
 	} else {
-		if(getResource(resource) < getStorage(resource)){
+		if(current < storage){
 			Game.resources.addResource(resource, gainNum);
 			Game.statistics.add('manualResources', gainNum);
-		}
+            console.log("Added " + gainNum + " to " + resource);
+		} else {
+            console.log("Storage full for " + resource);
+            Game.notifyStorage(); // Use the existing notify function
+        }
 	}
 }
 
