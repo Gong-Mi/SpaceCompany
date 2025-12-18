@@ -247,47 +247,52 @@ var Game = (function() {
     };
 
     instance.loadDelay = function (self, delta) {
-        document.getElementById("game").className = "container";
-
         self.deleteInterval("Loading");
 
-        registerLegacyBindings();
-        self.ui.updateAutoDataBindings();
+        try {
+            registerLegacyBindings();
+            self.ui.updateAutoDataBindings();
 
-        // Initialize first
-        self.achievements.initialise();
-        self.statistics.initialise();
-        self.resources.initialise();
-        self.buildings.initialise();
-        self.tech.initialise();
-        self.interstellar.initialise();
-        self.stargaze.initialise();
+            // Initialize first
+            self.achievements.initialise();
+            self.statistics.initialise();
+            self.resources.initialise();
+            self.buildings.initialise();
+            self.tech.initialise();
+            self.interstellar.initialise();
+            self.stargaze.initialise();
 
-        // Now load
-        self.load();
+            // Now load
+            self.load();
 
-        self.settings.initialise();
+            self.settings.initialise();
 
-        for(var i = 0; i < self.uiComponents.length; i++) {
-            self.uiComponents[i].initialise();
+            for(var i = 0; i < self.uiComponents.length; i++) {
+                self.uiComponents[i].initialise();
+            }
+
+            self.updateUI(self);
+
+            // Display what has changed since last time
+            self.updates.initialise();
+
+            // Then start the main loops
+            self.createInterval("Fast Update", self.fastUpdate, 100);
+            self.createInterval("Slow Update", self.slowUpdate, 1000);
+            self.createInterval("UI Update", self.uiUpdate, 100);
+
+            // Do this in a setInterval so it gets called even when the window is inactive
+            window.setInterval(function(){ Game.fixedUpdate(); },100);
+
+            document.getElementById("game").className = "container";
+            setTimeout(function(){document.getElementById("loadScreen").className = "hidden";}, 100);
+            console.debug("Load Complete");
+        } catch (e) {
+            console.error("CRASH IN LOAD:", e);
+            alert("Game Load Error: " + e.message);
+            document.getElementById("game").className = "container";
+            document.getElementById("loadScreen").className = "hidden";
         }
-
-        self.updateUI(self);
-
-        // Display what has changed since last time
-        self.updates.initialise();
-
-        // Then start the main loops
-        self.createInterval("Fast Update", self.fastUpdate, 100);
-        self.createInterval("Slow Update", self.slowUpdate, 1000);
-        self.createInterval("UI Update", self.uiUpdate, 100);
-
-        // Do this in a setInterval so it gets called even when the window is inactive
-        window.setInterval(function(){ Game.fixedUpdate(); },100);
-
-        setTimeout(function(){document.getElementById("loadScreen").className = "hidden";}, 100)
-        console.debug("Load Complete");
-
     };
 
     instance.loadAnimation = function(self, delta) {

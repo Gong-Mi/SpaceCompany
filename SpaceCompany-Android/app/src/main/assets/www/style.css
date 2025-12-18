@@ -30,6 +30,11 @@
 	background-color: white !important;
 }
 
+/* Fallback hidden class if Bootstrap fails */
+.hidden {
+    display: none !important;
+}
+
 /* Mobile Responsiveness Patch */
 @media (max-width: 768px) {
     /* Stack the resource navigation (sidebar) and main content vertically */
