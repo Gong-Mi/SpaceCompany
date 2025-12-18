@@ -18,9 +18,9 @@ class MainActivity : ComponentActivity() {
         val settings = webView.settings
         settings.javaScriptEnabled = true
         settings.domStorageEnabled = true // Essential for game saves (LocalStorage)
-        settings.loadWithOverviewMode = true
-        settings.useWideViewPort = true
-        settings.builtInZoomControls = true
+        settings.loadWithOverviewMode = false
+        settings.useWideViewPort = false
+        settings.builtInZoomControls = false
         settings.displayZoomControls = false
         settings.allowFileAccess = true
         
