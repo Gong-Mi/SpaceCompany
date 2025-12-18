@@ -30,63 +30,88 @@
 	background-color: white !important;
 }
 
-/* Fallback hidden class if Bootstrap fails */
+/* Fallback hidden class */
 .hidden {
     display: none !important;
 }
 
-/* Mobile Responsiveness Patch */
+/* Mobile Responsiveness Patch - Version 2 (Compact Sidebar) */
 @media (max-width: 768px) {
-    /* Stack the resource navigation (sidebar) and main content vertically */
     
-    /* Target the sidebar container which has inline style width:380px or 250px (dynamic) */
+    /* --- Sidebar Configuration --- */
+    
+    /* Force sidebar to be narrow and fixed on the left */
     div.container.col-xs-1[style*="width:380px"],
     div.container[style*="width:380px"],
     .tab-pane > .container[style*="float:left"],
     .tab-pane > .container[style*="width:250px"] {
-        width: 100% !important;
-        float: none !important;
-        height: auto !important;
-        padding-bottom: 20px;
+        width: 110px !important;
+        float: left !important;
+        padding: 0 !important;
+        overflow-x: hidden;
+        z-index: 10;
+        min-height: 300px; /* Ensure visibility */
+    }
+
+    /* Hide Name (Column 2) and Rate (Column 3) to save space */
+    #resourceNavParent tr td:nth-child(2),
+    #resourceNavParent tr td:nth-child(3) {
+        display: none !important;
     }
     
-    /* Target the main content area which has inline style margin-left:390px or similar */
+    /* Adjust Icon Column (1) */
+    #resourceNavParent tr td:nth-child(1) {
+        width: 30px !important;
+        padding: 5px 2px !important;
+        text-align: center !important;
+    }
+    
+    /* Adjust Amount Column (4) */
+    #resourceNavParent tr td:nth-child(4) {
+        font-size: 11px !important;
+        text-align: left !important;
+        padding: 5px 2px !important;
+        white-space: nowrap;
+    }
+    
+    /* Compact Row Height */
+    .sideTab {
+        height: 50px !important;
+    }
+
+    /* --- Main Content Configuration --- */
+
+    /* Move content to the right of the narrow sidebar */
     div.tab-content[id="resourceTabParent"][style*="margin-left:390px"],
     div.tab-content[style*="margin-left:390px"],
     .tab-pane > .tab-content[style*="margin-left"] {
-        margin-left: 0 !important;
-        float: none !important;
-        width: 100% !important;
-    }
-    
-    /* Target inner tab content width:100px floating left */
-    div[style*="width:100px"][style*="float:left"] {
-        width: 100% !important;
+        margin-left: 115px !important; /* 110px sidebar + 5px gap */
+        width: auto !important;
         float: none !important;
     }
-
-    /* Adjust table layout in sidebar */
-    #resourceNavParent, .table {
-        width: 100%;
+    
+    /* Adjust text size in content area */
+    .tab-content h2 {
+        font-size: 18px;
+        margin-top: 5px;
     }
     
-    .sideTab {
-        height: auto !important;
-        padding: 15px 5px !important;
-    }
-    
-    /* Make buttons and text larger for touch */
-    .btn {
-        padding: 10px 15px;
+    .tab-content h3 {
         font-size: 16px;
     }
     
-    h2, h3 {
-        margin-top: 10px;
-        margin-bottom: 10px;
+    .tab-content span {
+        font-size: 13px;
+    }
+
+    /* Make buttons touch-friendly but fit in space */
+    .btn {
+        padding: 8px 12px;
+        font-size: 14px;
+        margin-bottom: 5px;
     }
     
-    /* Hide some elements that might clutter mobile view if necessary, or adjust margins */
+    /* Inner containers padding */
     .container {
         padding-left: 5px;
         padding-right: 5px;
