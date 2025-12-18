@@ -41,51 +41,63 @@ var Game = (function() {
     };
 
     instance.fixedUpdate = function() {
-        var currentTime = new Date().getTime();
-        var delta = (currentTime - this.lastFixedUpdate) / 1000;
-        this.lastFixedUpdate = currentTime;
+        try {
+            var currentTime = new Date().getTime();
+            var delta = (currentTime - this.lastFixedUpdate) / 1000;
+            this.lastFixedUpdate = currentTime;
 
-        refreshPerSec(delta);
-        gainResources(delta);
-        fixStorageRounding();
+            refreshPerSec(delta);
+            gainResources(delta);
+            fixStorageRounding();
+        } catch (e) {
+            console.error("Error in fixedUpdate:", e);
+        }
     };
 
     instance.fastUpdate = function(self, delta) {
-        refreshWonderBars();
-        checkRedCost();
+        try {
+            refreshWonderBars();
+            checkRedCost();
 
-        updateResourceEfficiencyDisplay();
-        updateEnergyEfficiencyDisplay();
-        updateScienceEfficiencyDisplay();
-        updateBatteryEfficiencyDisplay();
+            updateResourceEfficiencyDisplay();
+            updateEnergyEfficiencyDisplay();
+            updateScienceEfficiencyDisplay();
+            updateBatteryEfficiencyDisplay();
 
-        legacyRefreshUI();
+            legacyRefreshUI();
 
-        self.ui.updateBoundElements(delta);
+            self.ui.updateBoundElements(delta);
 
-        self.resources.update(delta);
-        self.buildings.update(delta);
-        self.tech.update(delta);
-        self.settings.update(delta);
+            self.resources.update(delta);
+            self.buildings.update(delta);
+            self.tech.update(delta);
+            self.settings.update(delta);
 
-        self.updateAutoSave(delta);
+            self.updateAutoSave(delta);
 
-        if(delta > 1) {
-            console.log("You have been away for " + Game.utils.getTimeDisplay(delta));
+            if(delta > 1) {
+                console.log("You have been away for " + Game.utils.getTimeDisplay(delta));
+            }
+        } catch (e) {
+            console.error("Error in fastUpdate:", e);
         }
     };
 
     instance.slowUpdate = function(self, delta) {
-        refreshConversionDisplay();
-        refreshTimeUntilLimit();
-        gainAutoEmc();
+        try {
+            refreshConversionDisplay();
+            refreshTimeUntilLimit();
+            gainAutoEmc();
 
-        checkStorages();
+            checkStorages();
 
-        self.updateTime(delta);
+            self.updateTime(delta);
 
-        self.achievements.update(delta);
-        self.statistics.update(delta);
+            self.achievements.update(delta);
+            self.statistics.update(delta);
+        } catch (e) {
+            console.error("Error in slowUpdate:", e);
+        }
     };
 
     instance.uiUpdate = function(self, delta) {
