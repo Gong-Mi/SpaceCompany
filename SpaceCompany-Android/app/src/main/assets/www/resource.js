@@ -48,6 +48,19 @@ Game.resources = (function(){
 
         console.debug("Loaded " + this.resourceCategoryCount + " Resource Categories");
         console.debug("Loaded " + this.resourceTypeCount + " Resource Types");
+
+        this.updateResourceDescriptions();
+    };
+
+    instance.updateResourceDescriptions = function() {
+        for (var id in Game.resourceData) {
+            var data = Game.resourceData[id];
+            var nameEl = $('#res_name_' + id);
+            var descEl = $('#res_desc_' + id);
+            
+            if (nameEl.length > 0) nameEl.text(data.name);
+            if (descEl.length > 0) descEl.text(data.desc);
+        }
     };
 
     instance.update = function(delta) {
